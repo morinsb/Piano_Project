@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
 
 /**
  *
@@ -19,14 +20,16 @@ import javafx.scene.control.Label;
 public class FXMLDocumentController implements Initializable {
     
     @FXML
-    private Label label;
+    private Rectangle C13;
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
-    
+    private Rectangle D15;
+            
+   @FXML
+   private Rectangle E16;
+            
+   @FXML
+   private Rectangle          
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
