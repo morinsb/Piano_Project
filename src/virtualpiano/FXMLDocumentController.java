@@ -24,7 +24,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private Rectangle D1;
-            
+    
    @FXML
    private Rectangle E1;
    @FXML
@@ -35,8 +35,6 @@ public class FXMLDocumentController implements Initializable {
    private Rectangle A1;
    @FXML
    private Rectangle B1;
-   @FXML
-   private Rectangle C2;
    @FXML
    private Rectangle D0;
    @FXML
@@ -52,10 +50,40 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private Rectangle C0;
    
-      
+   //Black keys 
+   @FXML
+   private Rectangle Csharp0;
+   @FXML
+   private Rectangle Eflat0;
+   @FXML
+   private Rectangle Fsharp0;
+   @FXML
+   private Rectangle Gsharp0;
+   @FXML
+   private Rectangle Asharp0;
+   @FXML
+   private Rectangle Bflat0;
+   @FXML
+   private Rectangle Csharp1;
+   @FXML
+   private Rectangle Eflat1;
+   @FXML
+   private Rectangle Fsharp1;
+   @FXML
+   private Rectangle Gsharp1;
+   @FXML
+   private Rectangle Asharp1;
+   @FXML
+   private Rectangle Bflat1;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    public void playSound(ActionEvent playC0){
+        
+    }
+   
     
 }
+
