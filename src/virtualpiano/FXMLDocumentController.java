@@ -20,67 +20,68 @@ import javafx.scene.shape.Rectangle;
 public class FXMLDocumentController implements Initializable {
     
     @FXML
-    private Rectangle C1;
+    private Rectangle C2;
     
     @FXML
-    private Rectangle D1;
+    private Rectangle D2;
     
    @FXML
-   private Rectangle E1;
+   private Rectangle E2;
    @FXML
-   private Rectangle F1;
+   private Rectangle F2;
    @FXML
-   private Rectangle G1;
+   private Rectangle G2;
    @FXML
-   private Rectangle A1;
+   private Rectangle A2;
    @FXML
-   private Rectangle B1;
+   private Rectangle B2;
    @FXML
-   private Rectangle D0;
+   private Rectangle D3;
    @FXML
-   private Rectangle E0;
+   private Rectangle E3;
    @FXML
-   private Rectangle F0;
+   private Rectangle F3;
    @FXML
-   private Rectangle G0;
+   private Rectangle G3;
    @FXML
-   private Rectangle A0;
+   private Rectangle A3;
    @FXML
-   private Rectangle B0;
+   private Rectangle B3;
    @FXML
-   private Rectangle C0;
+   private Rectangle C3;
    
    //Black keys 
    @FXML
-   private Rectangle Csharp0;
+   private Rectangle Csharp2;
    @FXML
-   private Rectangle Eflat0;
+   private Rectangle Eflat2;
    @FXML
-   private Rectangle Fsharp0;
+   private Rectangle Fsharp2;
    @FXML
-   private Rectangle Gsharp0;
+   private Rectangle Gsharp2;
    @FXML
-   private Rectangle Asharp0;
+   private Rectangle Asharp2;
    @FXML
-   private Rectangle Bflat0;
+   private Rectangle Bflat2;
    @FXML
-   private Rectangle Csharp1;
+   private Rectangle Csharp3;
    @FXML
-   private Rectangle Eflat1;
+   private Rectangle Eflat3;
    @FXML
-   private Rectangle Fsharp1;
+   private Rectangle Fsharp3;
    @FXML
-   private Rectangle Gsharp1;
+   private Rectangle Gsharp3;
    @FXML
-   private Rectangle Asharp1;
+   private Rectangle Asharp3;
    @FXML
-   private Rectangle Bflat1;
+   private Rectangle Bflat3;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     public void playSound(ActionEvent playC0){
+        
         
     }
    
