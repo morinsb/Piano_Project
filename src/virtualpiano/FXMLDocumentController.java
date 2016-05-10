@@ -5,12 +5,14 @@
  */
 package virtualpiano;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -59,8 +61,7 @@ public class FXMLDocumentController implements Initializable {
    private Rectangle Fsharp2;
    @FXML
    private Rectangle Gsharp2;
-   @FXML
-   private Rectangle Asharp2;
+  
    @FXML
    private Rectangle Bflat2;
    @FXML
@@ -71,18 +72,23 @@ public class FXMLDocumentController implements Initializable {
    private Rectangle Fsharp3;
    @FXML
    private Rectangle Gsharp3;
-   @FXML
-   private Rectangle Asharp3;
+ 
    @FXML
    private Rectangle Bflat3;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    public void playSound(ActionEvent playC0){
-        
-        
+    }  
+    //method to play the piano notes
+    public void playSound(String filename){
+       URL sound = getClass().getResource("pianoNotes/" + filename);
+       AudioClip play = new AudioClip(sound.toString());
+       play.play();
+       
+    }
+    public void playC3(ActionEvent event){
+        playSound("c3.wav"); 
     }
    
     
