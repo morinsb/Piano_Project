@@ -20,16 +20,39 @@ import javafx.scene.shape.Rectangle;
 public class FXMLDocumentController implements Initializable {
     
     @FXML
-    private Rectangle C13;
+    private Rectangle C1;
     
     @FXML
-    private Rectangle D15;
+    private Rectangle D1;
             
    @FXML
-   private Rectangle E16;
-            
+   private Rectangle E1;
    @FXML
-   private Rectangle          
+   private Rectangle F1;
+   @FXML
+   private Rectangle G1;
+   @FXML
+   private Rectangle A1;
+   @FXML
+   private Rectangle B1;
+   @FXML
+   private Rectangle C2;
+   @FXML
+   private Rectangle D0;
+   @FXML
+   private Rectangle E0;
+   @FXML
+   private Rectangle F0;
+   @FXML
+   private Rectangle G0;
+   @FXML
+   private Rectangle A0;
+   @FXML
+   private Rectangle B0;
+   @FXML
+   private Rectangle C0;
+   
+      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
