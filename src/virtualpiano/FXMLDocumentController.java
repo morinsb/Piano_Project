@@ -55,11 +55,11 @@ public class FXMLDocumentController implements Initializable {
    
    //Black keys 
    @FXML
-   private Rectangle Csharp2;
+   private Rectangle C2S;
    @FXML
-   private Rectangle Eflat2;
+   private Rectangle D2S;
    @FXML
-   private Rectangle Fsharp2;
+   private Rectangle F2S;
    @FXML
    private Rectangle Gsharp2;
   
@@ -88,34 +88,51 @@ public class FXMLDocumentController implements Initializable {
        play.play();
        
     }
+    public void playC2(MouseEvent event){
+        playSound("c2.wav"); 
+    }
+    public void playC2S(MouseEvent event){
+        playSound("c2s.wav"); 
+    }
+    public void playD2(MouseEvent event){
+        playSound("d2.wav"); 
+    }
+    public void playD2S(MouseEvent event){
+        playSound("d2s.wav"); 
+    }
+    public void playE2(MouseEvent event){
+        playSound("e2.wav"); 
+    }
+    public void playF2(MouseEvent event){
+        playSound("f2.wav"); 
+    }
+    public void playF2s(MouseEvent event){
+        playSound("f2s.wav"); 
+    }
+    public void playG2(MouseEvent event){
+        playSound("g2.wav"); 
+    }
+    public void playG2s(MouseEvent event){
+        playSound("g2s.wav"); 
+    }
+    public void playA2(MouseEvent event){
+        playSound("a2.wav"); 
+    }
+    public void playB2f(MouseEvent event){
+        playSound("b2f.wav"); 
+    }
+    public void playB2(MouseEvent event){
+        playSound("b2.wav"); 
+    }
     public void playC3(MouseEvent event){
         playSound("c3.wav"); 
     }
-    public void playA1(MouseEvent event){
-        playSound("a1.wav"); 
-    }
-    public void playA1s(MouseEvent event){
-        playSound("a1s.wav"); 
-    }
-    public void playB1(MouseEvent event){
-        playSound("b1.wav"); 
-    }
-    public void playC1S(MouseEvent event){
-        playSound("c1s.wav"); 
-    }
-     public void playC2(MouseEvent event){
-        playSound("c2.wav"); 
-    }
-     public void playD1(MouseEvent event){
-        playSound("d1.wav"); 
-    }
-     public void playD1S(MouseEvent event){
-        playSound("d1s.wav"); 
-    }
-     public void playE1(MouseEvent event){
-        playSound("e1.wav"); 
-    }
-   
+    
+    
+     
+     
+     
+    
    
    
    
