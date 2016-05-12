@@ -21,13 +21,11 @@ import javafx.scene.shape.Rectangle;
  * @author csstudent
  */
 public class FXMLDocumentController implements Initializable {
-    
-    @FXML
+    //white keys    
+   @FXML
     private Rectangle C2;
-    
-    @FXML
+   @FXML
     private Rectangle D2;
-    
    @FXML
    private Rectangle E2;
    @FXML
@@ -55,27 +53,25 @@ public class FXMLDocumentController implements Initializable {
    
    //Black keys 
    @FXML
-   private Rectangle C2S;
+   private Rectangle C2s;
    @FXML
-   private Rectangle D2S;
+   private Rectangle D2s;
    @FXML
-   private Rectangle F2S;
+   private Rectangle F2s;
    @FXML
-   private Rectangle Gsharp2;
-  
+   private Rectangle G2s;
    @FXML
-   private Rectangle Bflat2;
+   private Rectangle B2f;
    @FXML
-   private Rectangle Csharp3;
+   private Rectangle C3s;
    @FXML
-   private Rectangle Eflat3;
+   private Rectangle D3s;
    @FXML
-   private Rectangle Fsharp3;
+   private Rectangle F3s;
    @FXML
-   private Rectangle Gsharp3;
- 
+   private Rectangle G3s;
    @FXML
-   private Rectangle Bflat3;
+   private Rectangle B3f;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -91,13 +87,13 @@ public class FXMLDocumentController implements Initializable {
     public void playC2(MouseEvent event){
         playSound("c2.wav"); 
     }
-    public void playC2S(MouseEvent event){
+    public void playC2s(MouseEvent event){
         playSound("c2s.wav"); 
     }
     public void playD2(MouseEvent event){
         playSound("d2.wav"); 
     }
-    public void playD2S(MouseEvent event){
+    public void playD2s(MouseEvent event){
         playSound("d2s.wav"); 
     }
     public void playE2(MouseEvent event){
