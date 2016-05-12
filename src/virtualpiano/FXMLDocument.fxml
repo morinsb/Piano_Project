@@ -19,7 +19,7 @@
       <Rectangle fx:id="G3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="484.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
       <Rectangle fx:id="A3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="528.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
       <Rectangle fx:id="B3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="572.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-      <Rectangle fx:id="Csharp2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="30.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+      <Rectangle fx:id="C2S" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="30.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
       <Rectangle fx:id="Eflat2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="74.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
       <Rectangle fx:id="Fsharp2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="162.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
       <Rectangle fx:id="Gsharp2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="206.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
