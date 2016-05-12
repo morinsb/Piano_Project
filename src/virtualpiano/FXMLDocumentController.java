@@ -91,28 +91,28 @@ public class FXMLDocumentController implements Initializable {
     public void playC3(MouseEvent event){
         playSound("c3.wav"); 
     }
-    public void playA1(ActionEvent event){
+    public void playA1(MouseEvent event){
         playSound("a1.wav"); 
     }
-    public void playA1s(ActionEvent event){
+    public void playA1s(MouseEvent event){
         playSound("a1s.wav"); 
     }
-    public void playB1(ActionEvent event){
+    public void playB1(MouseEvent event){
         playSound("b1.wav"); 
     }
-    public void playC1S(ActionEvent event){
+    public void playC1S(MouseEvent event){
         playSound("c1s.wav"); 
     }
-     public void playC2(ActionEvent event){
+     public void playC2(MouseEvent event){
         playSound("c2.wav"); 
     }
-     public void playD1(ActionEvent event){
+     public void playD1(MouseEvent event){
         playSound("d1.wav"); 
     }
-     public void playD1S(ActionEvent event){
+     public void playD1S(MouseEvent event){
         playSound("d1s.wav"); 
     }
-     public void playE1(ActionEvent event){
+     public void playE1(MouseEvent event){
         playSound("e1.wav"); 
     }
    
