@@ -144,6 +144,53 @@ public class FXMLDocumentController implements Initializable {
     public void playC3(MouseEvent event){
         playSound("c3.wav"); 
     }
+    
+    public void playC3s(MouseEvent event){
+        playSound("cs3.wav"); 
+    }
+    
+    public void playD3(MouseEvent event){
+        playSound("c3.wav"); 
+    }
+    
+    public void playD3s(MouseEvent event){
+        playSound("ds3.wav"); 
+    }
+    
+    public void playE3(MouseEvent event){
+        playSound("e3.wav"); 
+    }
+    
+    public void playF3(MouseEvent event){
+        playSound("f3.wav"); 
+    }
+    
+    public void playF3s(MouseEvent event){
+        playSound("fs3.wav"); 
+    }
+    
+    public void playG3(MouseEvent event){
+        playSound("g3.wav"); 
+    }
+    
+    public void playG3s(MouseEvent event){
+        playSound("gs3.wav"); 
+    }
+    
+    public void playA3(MouseEvent event){
+        playSound("a3.wav"); 
+    }
+    
+    public void playB3f(MouseEvent event){
+        playSound("as3.wav"); 
+    }
+    
+    public void playB3(MouseEvent event){
+        playSound("b3.wav"); 
+    }
+  
+    
+    
     public void quit(ActionEvent event){
         System.exit(0);
         
