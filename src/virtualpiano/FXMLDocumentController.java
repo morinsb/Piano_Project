@@ -109,13 +109,13 @@ public class FXMLDocumentController implements Initializable {
         playSound("c2.wav"); 
     }
     public void playC2s(MouseEvent event){
-        playSound("c2s.wav"); 
+        playSound("cs2.wav"); 
     }
     public void playD2(MouseEvent event){
         playSound("d2.wav"); 
     }
     public void playD2s(MouseEvent event){
-        playSound("d2s.wav"); 
+        playSound("ds2.wav"); 
     }
     public void playE2(MouseEvent event){
         playSound("e2.wav"); 
@@ -124,19 +124,19 @@ public class FXMLDocumentController implements Initializable {
         playSound("f2.wav"); 
     }
     public void playF2s(MouseEvent event){
-        playSound("f2s.wav"); 
+        playSound("fs2.wav"); 
     }
     public void playG2(MouseEvent event){
         playSound("g2.wav"); 
     }
     public void playG2s(MouseEvent event){
-        playSound("g2s.wav"); 
+        playSound("gs2.wav"); 
     }
     public void playA2(MouseEvent event){
         playSound("a2.wav"); 
     }
     public void playB2f(MouseEvent event){
-        playSound("b2f.wav"); 
+        playSound("as2.wav"); 
     }
     public void playB2(MouseEvent event){
         playSound("b2.wav"); 
