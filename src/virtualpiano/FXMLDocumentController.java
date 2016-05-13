@@ -11,7 +11,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Rectangle;
@@ -72,6 +76,23 @@ public class FXMLDocumentController implements Initializable {
    private Rectangle G3s;
    @FXML
    private Rectangle B3f;
+   
+   @FXML
+   private MenuBar menu;
+   
+   @FXML
+   private Menu file;
+   
+   @FXML
+   private Menu help;
+   @FXML
+   private MenuItem quit;
+   @FXML
+   private MenuItem about;
+   @FXML
+   private Menu preferences;
+   @FXML
+   private MenuItem skins;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -123,20 +144,34 @@ public class FXMLDocumentController implements Initializable {
     public void playC3(MouseEvent event){
         playSound("c3.wav"); 
     }
-    
-    
-     
-     
-     
-    
-   
-   
-   
-   
-   
-   
-   
-   
-    
+    public void quit(ActionEvent event){
+        System.exit(0);
+        
+    }
+    public void showAbout(ActionEvent event){
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+           alert.setTitle("About the program");
+           alert.setHeaderText(null);
+           alert.setContentText("This program was made by Emma, Delnaz, Sam, and Mia. You can play our virtual piano, record your music, and choose from one of our many styles!");
+           
+           alert.showAndWait();
+    }
 }
+    
+    
+    
+     
+     
+     
+    
+   
+   
+   
+   
+   
+   
+   
+   
+    
+
 
