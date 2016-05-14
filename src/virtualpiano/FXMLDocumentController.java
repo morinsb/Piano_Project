@@ -16,6 +16,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Rectangle;
@@ -202,6 +204,64 @@ public class FXMLDocumentController implements Initializable {
            alert.setContentText("This program was made by Emma, Delnaz, Sam, and Mia. You can play our virtual piano, record your music, and choose from one of our many styles!");
            
            alert.showAndWait();
+    }
+    public void keyboardPlay(KeyEvent event){
+        if(event.getCode()==KeyCode.A){
+            playSound("c2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.S){
+            playSound("d2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.D){
+            playSound("e2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.F){
+            playSound("f2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.G){
+            playSound("g2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.H){
+            playSound("a2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.J){
+            playSound("b2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.K){
+            playSound("c3.wav");
+        
+        }
+        if(event.getCode()==KeyCode.L){
+            playSound("d3.wav");
+        
+        }
+        if(event.getCode()==KeyCode.Z){
+            playSound("e3.wav");
+        
+        }
+        if(event.getCode()==KeyCode.X){
+            playSound("f3.wav");
+        
+        }
+        if(event.getCode()==KeyCode.C){
+            playSound("g3.wav");
+        
+        }
+        if(event.getCode()==KeyCode.V){
+            playSound("a3.wav");
+        
+        }
+        if(event.getCode()==KeyCode.B){
+            playSound("b3.wav");
+        
+        }
     }
 }
     
