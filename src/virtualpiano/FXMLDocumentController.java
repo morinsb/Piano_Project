@@ -262,6 +262,45 @@ public class FXMLDocumentController implements Initializable {
             playSound("b3.wav");
         
         }
+        if(event.getCode()==KeyCode.Q){
+            playSound("cs2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.W){
+            playSound("ds2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.E){
+            playSound("fs2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.R){
+            playSound("gs2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.T){
+            playSound("as2.wav");
+        
+        }
+        if(event.getCode()==KeyCode.Y){
+            playSound("cs3.wav");
+        
+        }
+        if(event.getCode()==KeyCode.U){
+            playSound("ds3.wav");
+        }
+        if(event.getCode()==KeyCode.I){
+            playSound("fs3.wav");
+        
+        }
+        if(event.getCode()==KeyCode.O){
+            playSound("gs3.wav");
+        
+        }
+        if(event.getCode()==KeyCode.P){
+            playSound("as3.wav");
+        
+        }
     }
 }
     
