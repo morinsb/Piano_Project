@@ -152,7 +152,7 @@ public class FXMLDocumentController implements Initializable {
     }
     
     public void playD3(MouseEvent event){
-        playSound("c3.wav"); 
+        playSound("d3.wav"); 
     }
     
     public void playD3s(MouseEvent event){
