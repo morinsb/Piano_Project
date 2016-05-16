@@ -7,7 +7,9 @@ package virtualpiano;
 
 import java.io.File;
 import java.net.URL;
+import javafx.util.Duration;
 import java.util.ResourceBundle;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -152,8 +154,10 @@ public class FXMLDocumentController implements Initializable {
     public void playSound(String filename, Rectangle rectangle){
        URL sound = getClass().getResource("pianoNotes/" + filename);
        AudioClip play = new AudioClip(sound.toString());
+       PauseTransition pause = new PauseTransition(Duration.millis(1000));
        rectangle.setVisible(true);
        play.play();
+       pause.play();
        rectangle.setVisible(false);
        
     }
