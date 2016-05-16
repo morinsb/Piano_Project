@@ -7,6 +7,7 @@ package virtualpiano;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -96,6 +97,8 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private MenuItem skins;
 
+   private ArrayList<RecordedNote> rec1;
+   //system.currentTimeMillis
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
