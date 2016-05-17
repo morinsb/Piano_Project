@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -30,6 +31,9 @@ import javafx.scene.shape.Rectangle;
  * @author csstudent
  */
 public class FXMLDocumentController implements Initializable {
+    //record button
+    @FXML
+    private Button rec;
     //white keys    
    @FXML
     private Rectangle C2;
@@ -99,7 +103,6 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private MenuItem skins;
 
-   private ArrayList<RecordedNote> rec1;
    //system.currentTimeMillis
    @FXML
    private Rectangle C2g;
@@ -150,12 +153,44 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private Rectangle B3fg;
    
+   private long startTime;
+   private long elapsedTime;
+   private ArrayList<RecordedNote> rec1;
+   private boolean isRecording = false;
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }  
+    
+    //method to start recording
+    public void record(MouseEvent event){
+       if(isRecording == false){
+            startTime = System.currentTimeMillis();
+            isRecording = true;
+           
+       } else {
+           isRecording = false;
+           elapsedTime = startTime - System.currentTimeMillis();
+       }   
+    }
+    //method to play recording
+    public void playRec(){
+        startTime = System.currentTimeMillis();
+        //check time alignment
+        for (int i = 0; i < rec1.size(); i++){
+            playSound(rec1.get(i).getFile(), rec1.get(i).getRec());
+            if(i + 1 != rec1.size()){
+            Thread.sleep(rec1.get(i+1).getTime() -rec1.get(i).getTime());
+            }
+        }
+    }
     //method to play the piano notes
     public void playSound(String filename, Rectangle rectangle){
+        if(isRecording == true){
+            rec1.add(new RecordedNote(startTime-System.nanoTime(), filename, rectangle));
+            
+        }
        URL sound = getClass().getResource("pianoNotes/" + filename);
        AudioClip play = new AudioClip(sound.toString());
        PauseTransition pause = new PauseTransition(Duration.millis(1000));
