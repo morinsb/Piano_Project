@@ -138,6 +138,11 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     
     } 
+    
+    public void changeSkin(ActionEvent event){
+        
+    
+    }
    
     
     public void showKeyPlayed(Rectangle rec){
@@ -159,6 +164,7 @@ public class FXMLDocumentController implements Initializable {
        AudioClip play = new AudioClip(sound.toString());
        play.play();
        showKeyPlayed(rectangle);
+       
     }
    
     public void playC2(MouseEvent event){
