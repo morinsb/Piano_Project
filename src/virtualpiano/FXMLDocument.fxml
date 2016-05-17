@@ -27,40 +27,16 @@
                   <Rectangle fx:id="G3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="496.0" layoutY="152.0" onMousePressed="#playG3" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle fx:id="A3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="540.0" layoutY="152.0" onMousePressed="#playA3" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle fx:id="B3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="584.0" layoutY="152.0" onMousePressed="#playB3" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle fx:id="C2g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="12.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
-                  <Rectangle fx:id="D2g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="56.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="C2s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="42.0" layoutY="153.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="E2g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="100.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="D2s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="86.0" layoutY="152.0" onMousePressed="#playD2s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="F2g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="144.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
-                  <Rectangle fx:id="G2g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="188.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="F2s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="174.0" layoutY="152.0" onMousePressed="#playF2s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="A2g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="232.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="G2s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="218.0" layoutY="152.0" onMousePressed="#playG2s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="B2g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="276.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="B2f" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="262.0" layoutY="152.0" onMousePressed="#playB2f" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="C3g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="320.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
-                  <Rectangle fx:id="D3g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="364.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="C3s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="350.0" layoutY="152.0" onMousePressed="#playC3s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="E3g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="408.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="D3s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="394.0" layoutY="152.0" onMousePressed="#playD3s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="F3g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="452.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
-                  <Rectangle fx:id="G3g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="496.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="F3s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="482.0" layoutY="152.0" onMousePressed="#playF3s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="A3g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="540.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="G3s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="526.0" layoutY="152.0" onMousePressed="#playG3s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="B3g" arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="224.0" layoutX="584.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" visible="false" width="44.0" />
                   <Rectangle fx:id="B3f" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="570.0" layoutY="152.0" onMousePressed="#playB3f" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle fx:id="C2sg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="42.0" layoutY="153.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
-                  <Rectangle fx:id="D2sg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="86.0" layoutY="152.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
-                  <Rectangle fx:id="F2sg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="174.0" layoutY="152.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
-                  <Rectangle fx:id="G2sg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="218.0" layoutY="152.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
-                  <Rectangle fx:id="B2fg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="262.0" layoutY="152.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
-                  <Rectangle fx:id="C3sg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="350.0" layoutY="152.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
-                  <Rectangle fx:id="D3sg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="394.0" layoutY="152.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
-                  <Rectangle fx:id="F3sg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="482.0" layoutY="152.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
-                  <Rectangle fx:id="G3sg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="526.0" layoutY="152.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
-                  <Rectangle fx:id="B3fg" arcHeight="5.0" arcWidth="5.0" fill="#8d8a8a" height="146.0" layoutX="570.0" layoutY="152.0" onMousePressed="#playC2s" stroke="BLACK" strokeType="INSIDE" visible="false" width="29.0" />
                </children>
             </AnchorPane>
          </left>
