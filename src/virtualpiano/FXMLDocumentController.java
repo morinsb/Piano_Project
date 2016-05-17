@@ -5,16 +5,16 @@
  */
 package virtualpiano;
 
-import java.io.File;
+import static java.lang.Thread.sleep;
 import java.net.URL;
 import javafx.util.Duration;
 import java.util.ResourceBundle;
+import javafx.animation.FillTransition;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -22,145 +22,232 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
 /**
  *
- * @author csstudent
+ * @author Sam Morin, Delnaz Patel, Emma Rafkin, Mia Waggoner
  */
 public class FXMLDocumentController implements Initializable {
-    //white keys    
+    
+//white keys    
    @FXML
-    private Rectangle C2;
+   private Rectangle C2;
+   
    @FXML
     private Rectangle D2;
+   
    @FXML
    private Rectangle E2;
+   
    @FXML
    private Rectangle F2;
+   
    @FXML
    private Rectangle G2;
+   
    @FXML
    private Rectangle A2;
+   
    @FXML
    private Rectangle B2;
+   
    @FXML
    private Rectangle D3;
+   
    @FXML
    private Rectangle E3;
+   
    @FXML
    private Rectangle F3;
+   
    @FXML
    private Rectangle G3;
+   
    @FXML
    private Rectangle A3;
+   
    @FXML
    private Rectangle B3;
+   
    @FXML
    private Rectangle C3;
    
    //Black keys 
    @FXML
    private Rectangle C2s;
+   
    @FXML
    private Rectangle D2s;
+   
    @FXML
    private Rectangle F2s;
+   
    @FXML
    private Rectangle G2s;
+   
    @FXML
    private Rectangle B2f;
+   
    @FXML
    private Rectangle C3s;
+   
    @FXML
    private Rectangle D3s;
+   
    @FXML
    private Rectangle F3s;
+   
    @FXML
    private Rectangle G3s;
+   
    @FXML
    private Rectangle B3f;
+   
    
    @FXML
    private MenuBar menu;
    
+   
    @FXML
    private Menu file;
    
+   
    @FXML
    private Menu help;
+   
    @FXML
    private MenuItem quit;
+   
    @FXML
    private MenuItem about;
+   
    @FXML
    private Menu preferences;
+   
    @FXML
    private MenuItem skins;
+   
    @FXML
    private Rectangle C2g;
+   
    @FXML
    private Rectangle D2g;
+   
    @FXML
    private Rectangle E2g;
+   
    @FXML
    private Rectangle F2g;
+   
    @FXML
    private Rectangle G2g;
+   
    @FXML
    private Rectangle A2g;
+   
    @FXML
    private Rectangle B2g;
+   
    @FXML
    private Rectangle C3g;
+   
    @FXML
    private Rectangle D3g;
+   
    @FXML
    private Rectangle E3g;
+   
    @FXML
    private Rectangle F3g;
+   
    @FXML
    private Rectangle G3g;
+   
    @FXML
    private Rectangle A3g;
+   
    @FXML
    private Rectangle B3g;
+   
    @FXML
    private Rectangle C2sg;
+   
    @FXML
    private Rectangle D2sg;
+   
    @FXML
    private Rectangle F2sg;
+   
    @FXML
    private Rectangle G2sg;
+   
    @FXML
    private Rectangle B2fg;
+   
    @FXML
    private Rectangle C3sg;
+   
    @FXML
    private Rectangle D3sg;
+   
    @FXML
    private Rectangle F3sg;
+   
    @FXML
    private Rectangle G3sg;
+  
    @FXML
    private Rectangle B3fg;
-   
+   //DO NOT DELETE THIS
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }  
-    //method to play the piano notes
+    
+    } 
+    //Method to turn the note played a different color
+    //This does not work
+    /*public void showKeyPlayed(Rectangle rec){
+        //rec is the hidden key, not the original key
+      PauseTransition pause = new PauseTransition(Duration.millis(3000));
+      rec.setVisible(true);
+      pause.play();
+        rec.setVisible(false);
+    }*/
+    //OTHER OPTIONS. Both don't work though
+    /*
+    public void showKeyPlayed(Rectangle rec){
+        //Rec is the original key, not the hidden key
+        Paint temp = rec.getFill();
+        rec.setFill(Color.GRAY);
+        try{
+            Thread.sleep(3000);
+        }catch(InterruptedException e){
+        }
+        rec.setFill(temp);
+    }
+    */
+    
+    public void showKeyPlayed(Rectangle rec){
+        //rec is the original key, not the hidden key
+     Paint temp = rec.getFill();
+     FillTransition ft = new FillTransition(Duration.millis(3000), rec, (Color) temp, Color.RED);
+     ft.setCycleCount(1);
+     ft.setAutoReverse(true);
+     ft.play();
+ 
+        
+    }
+
+    //Method to play the piano notes
     public void playSound(String filename, Rectangle rectangle){
        URL sound = getClass().getResource("pianoNotes/" + filename);
        AudioClip play = new AudioClip(sound.toString());
-       PauseTransition pause = new PauseTransition(Duration.millis(1000));
-       rectangle.setVisible(true);
        play.play();
-       pause.play();
-       rectangle.setVisible(false);
-       
+       showKeyPlayed(rectangle);
     }
+   
     public void playC2(MouseEvent event){
         playSound("c2.wav", C2g);    
     }
@@ -256,7 +343,6 @@ public class FXMLDocumentController implements Initializable {
            alert.setTitle("About the program");
            alert.setHeaderText(null);
            alert.setContentText("This program was made by Emma, Delnaz, Sam, and Mia. You can play our virtual piano, record your music, and choose from one of our many styles!");
-           
            alert.showAndWait();
     }
     public void keyboardPlay(KeyEvent event){
