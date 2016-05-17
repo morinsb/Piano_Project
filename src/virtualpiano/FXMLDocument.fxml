@@ -13,7 +13,7 @@
          <left>
             <AnchorPane focusTraversable="true" onKeyPressed="#keyboardPlay" prefHeight="246.0" prefWidth="639.0" BorderPane.alignment="CENTER">
                <children>
-                  <Rectangle fx:id="C2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="12.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="C2" fx:id="C2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="12.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle fx:id="D2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="56.0" layoutY="152.0" onMousePressed="#playD2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle fx:id="E2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="100.0" layoutY="152.0" onMousePressed="#playE2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle fx:id="F2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="144.0" layoutY="152.0" onMousePressed="#playF2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
