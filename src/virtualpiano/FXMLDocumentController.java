@@ -37,6 +37,9 @@ public class FXMLDocumentController implements Initializable {
     //record button
     @FXML
     private Button rec;
+    //play buttons
+    @FXML
+    private Button play;
     //white keys    
    @FXML
    private Rectangle C2;
