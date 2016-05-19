@@ -38,7 +38,7 @@ public class VirtualPiano extends Application {
         appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("blueBach.css").toExternalForm());
     }
     public static void switchToLavendar(){
-        
+         appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("lisztLavendar.css").toExternalForm());
     }
     public static void switchToMaroon(){
         appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("maroonMozart.css").toExternalForm());
