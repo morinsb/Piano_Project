@@ -43,6 +43,9 @@ public class VirtualPiano extends Application {
     public static void switchToMaroon(){
         appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("maroonMozart.css").toExternalForm());
     }
+    public static void switchToDefault(){
+         appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("default.css").toExternalForm());
+    }
     
     /**
      * @param args the command line arguments

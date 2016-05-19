@@ -56,6 +56,7 @@
             <items>
                   <Menu fx:id="skins" mnemonicParsing="false" text="Skins">
                     <items>
+                        <MenuItem fx:id="defaultSkin" mnemonicParsing="false" onAction="#defaultSkin" text="Default Skin" />
                         <MenuItem fx:id="reverseSkin" mnemonicParsing="false" onAction="#reverseSkin" text="Reverse Skin" />
                         <MenuItem fx:id="blueSkin" mnemonicParsing="false" onAction="#blueSkin" text="Blue Skin" />
                         <MenuItem fx:id="maroonSkin" mnemonicParsing="false" onAction="#maroonSkin" text="Maroon Skin" />
