@@ -133,10 +133,18 @@ public class FXMLDocumentController implements Initializable {
    private MenuItem about;
    
    @FXML
-   private Menu preferences;
+   private Menu skins;
    
    @FXML
-   private MenuItem skins;
+   private MenuItem reverseSkin;
+   @FXML
+   private MenuItem blueSkin;
+   @FXML
+   private MenuItem lavendarSkin;
+    @FXML
+   private MenuItem maroonSkin;
+    @FXML
+   private MenuItem defaultSkin;
 
  
    //DO NOT DELETE THIS
@@ -231,11 +239,21 @@ public class FXMLDocumentController implements Initializable {
     
      
     
-    public void changeSkin(ActionEvent event){
+    public void reverseSkin(ActionEvent event){
         VirtualPiano.switchToReverse();
     }
-   
-    
+    public void blueSkin(ActionEvent event){
+        VirtualPiano.switchToBlue();
+    }
+   public void lavendarSkin(ActionEvent event){
+        VirtualPiano.switchToLavendar();
+    }
+    public void maroonSkin(ActionEvent event){
+        VirtualPiano.switchToMaroon();
+    }
+    public void defaultSkin(ActionEvent event){
+        VirtualPiano.switchToDefault();
+    }
     public void showKeyPlayed(Rectangle rec){
         //rec is the original key, not the hidden key
      Paint temp = rec.getFill();
