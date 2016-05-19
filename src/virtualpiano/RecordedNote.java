@@ -5,24 +5,30 @@
  */
 package virtualpiano;
 
+import javafx.scene.shape.Rectangle;
+
 /**
  *
  * @author csstudent
  */
 public class RecordedNote {
     private static long time;
-    private static String note;
-    
-    public RecordedNote(long t, String n){
+    private static String file;
+    private static Rectangle rectangle;
+    public RecordedNote(long t, String f, Rectangle r){
         time = t;
-        note = n;
+        file = f;
+        rectangle = r;
     }
     
     public long getTime(){
         return time;
     }
-     public String getNote(){
-         return note;
+    public String getFile(){
+         return file;
      }
-     
+    public Rectangle getRec(){
+     return rectangle;   
+    }
+    
 }

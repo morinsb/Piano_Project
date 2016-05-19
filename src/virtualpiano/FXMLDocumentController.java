@@ -16,6 +16,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -32,8 +34,13 @@ import javafx.scene.shape.Rectangle;
  * @author Sam Morin, Delnaz Patel, Emma Rafkin, Mia Waggoner
  */
 public class FXMLDocumentController implements Initializable {
-    
-//white keys    
+    //record button
+    @FXML
+    private Button rec;
+    //play buttons
+    @FXML
+    private Button play;
+    //white keys    
    @FXML
    private Rectangle C2;
    
@@ -131,13 +138,98 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private MenuItem skins;
 
-   private ArrayList<RecordedNote> rec1;
  
    //DO NOT DELETE THIS
+   //system.currentTimeMillis
+   @FXML
+   private Rectangle C2g;
+   @FXML
+   private Rectangle D2g;
+   @FXML
+   private Rectangle E2g;
+   @FXML
+   private Rectangle F2g;
+   @FXML
+   private Rectangle G2g;
+   @FXML
+   private Rectangle A2g;
+   @FXML
+   private Rectangle B2g;
+   @FXML
+   private Rectangle C3g;
+   @FXML
+   private Rectangle D3g;
+   @FXML
+   private Rectangle E3g;
+   @FXML
+   private Rectangle F3g;
+   @FXML
+   private Rectangle G3g;
+   @FXML
+   private Rectangle A3g;
+   @FXML
+   private Rectangle B3g;
+   @FXML
+   private Rectangle C2sg;
+   @FXML
+   private Rectangle D2sg;
+   @FXML
+   private Rectangle F2sg;
+   @FXML
+   private Rectangle G2sg;
+   @FXML
+   private Rectangle B2fg;
+   @FXML
+   private Rectangle C3sg;
+   @FXML
+   private Rectangle D3sg;
+   @FXML
+   private Rectangle F3sg;
+   @FXML
+   private Rectangle G3sg;
+   @FXML
+   private Rectangle B3fg;
+   
+   private long startTime;
+   private long elapsedTime;
+   private ArrayList<RecordedNote> rec1 = new ArrayList<RecordedNote>();
+   private boolean isRecording = false;
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }  
     
-    } 
+    //method to start recording
+    public void record(MouseEvent event){
+       if(isRecording == false){
+           rec1.clear();
+           startTime = System.currentTimeMillis();
+           isRecording = true;
+           
+       } else {
+           isRecording = false;
+           elapsedTime = startTime - System.currentTimeMillis();
+       }   
+    }
+    //method to play recording
+    public void playRec(){
+        startTime = System.currentTimeMillis();
+        //check time alignment
+        for (int i = 0; i < rec1.size(); i++){
+            playSound(rec1.get(i).getFile(), rec1.get(i).getRec());
+            if(i + 1 != rec1.size()){
+                try{
+                    Thread.sleep(rec1.get(i+1).getTime() -rec1.get(i).getTime());
+                } catch(InterruptedException e){   
+                    
+                }
+            }
+        }
+    }
+    //method to play the piano notes
+    
+     
     
     public void changeSkin(ActionEvent event){
         VirtualPiano.switchToReverse();
@@ -159,6 +251,10 @@ public class FXMLDocumentController implements Initializable {
 
     //Method to play the piano notes
     public void playSound(String filename, Rectangle rectangle){
+        if(isRecording == true){
+            rec1.add(new RecordedNote(startTime-System.currentTimeMillis(), filename, rectangle));
+            
+        }
        URL sound = getClass().getResource("pianoNotes/" + filename);
        AudioClip play = new AudioClip(sound.toString());
        play.play();
