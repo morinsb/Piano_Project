@@ -192,7 +192,7 @@ public class FXMLDocumentController implements Initializable {
    
    private long startTime;
    private long elapsedTime;
-   private ArrayList<RecordedNote> rec1;
+   private ArrayList<RecordedNote> rec1 = new ArrayList<RecordedNote>();
    private boolean isRecording = false;
    
     @Override
@@ -203,8 +203,9 @@ public class FXMLDocumentController implements Initializable {
     //method to start recording
     public void record(MouseEvent event){
        if(isRecording == false){
-            startTime = System.currentTimeMillis();
-            isRecording = true;
+           rec1.clear();
+           startTime = System.currentTimeMillis();
+           isRecording = true;
            
        } else {
            isRecording = false;
@@ -252,7 +253,7 @@ public class FXMLDocumentController implements Initializable {
     //Method to play the piano notes
     public void playSound(String filename, Rectangle rectangle){
         if(isRecording == true){
-            rec1.add(new RecordedNote(startTime-System.nanoTime(), filename, rectangle));
+            rec1.add(new RecordedNote(startTime-System.currentTimeMillis(), filename, rectangle));
             
         }
        URL sound = getClass().getResource("pianoNotes/" + filename);
