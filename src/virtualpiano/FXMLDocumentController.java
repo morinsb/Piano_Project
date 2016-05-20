@@ -230,8 +230,9 @@ public class FXMLDocumentController implements Initializable {
             playSound(rec1.get(i).getFile(), rec1.get(i).getRec());
             if(i + 1 <= rec1.size()){
                 try{
-                    //Thread.sleep(rec1.get(i+1).getTime()-rec1.get(i).getTime());
-                    Thread.sleep(250);
+                    long t = rec1.get(i+1).getTime()-rec1.get(i).getTime();
+                    Thread.sleep(t);
+                    //Thread.sleep(250);
                 } catch(InterruptedException e){   
                     
                 }
@@ -271,7 +272,7 @@ public class FXMLDocumentController implements Initializable {
     //Method to play the piano notes
     public void playSound(String filename, Rectangle rectangle){
         if(isRecording == true){
-            rec1.add(new RecordedNote(startTime-System.currentTimeMillis(), filename, rectangle));
+            rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, filename, rectangle));
             
         }
        URL sound = getClass().getResource("pianoNotes/" + filename);
