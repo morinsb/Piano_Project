@@ -12,9 +12,9 @@ import javafx.scene.shape.Rectangle;
  * @author csstudent
  */
 public class RecordedNote {
-    private static long time;
-    private static String file;
-    private static Rectangle rectangle;
+    private long time;
+    private String file;
+    private Rectangle rectangle;
     public RecordedNote(long t, String f, Rectangle r){
         time = t;
         file = f;
