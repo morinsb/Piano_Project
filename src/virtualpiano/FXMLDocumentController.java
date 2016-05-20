@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -36,7 +37,7 @@ import javafx.scene.shape.Rectangle;
 public class FXMLDocumentController implements Initializable {
     //record button
     @FXML
-    private Button rec;
+    private ToggleButton rec;
     //play buttons
     @FXML
     private Button play;
@@ -227,9 +228,10 @@ public class FXMLDocumentController implements Initializable {
         //check time alignment
         for (int i = 0; i < rec1.size(); i++){
             playSound(rec1.get(i).getFile(), rec1.get(i).getRec());
-            if(i + 1 != rec1.size()){
+            if(i + 1 <= rec1.size()){
                 try{
-                    Thread.sleep(rec1.get(i+1).getTime() -rec1.get(i).getTime());
+                    //Thread.sleep(rec1.get(i+1).getTime()-rec1.get(i).getTime());
+                    Thread.sleep(250);
                 } catch(InterruptedException e){   
                     
                 }
