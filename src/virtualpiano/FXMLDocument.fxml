@@ -47,11 +47,11 @@
             <items>
                   <Menu fx:id="skins" mnemonicParsing="false" text="Skins">
                     <items>
-                        <MenuItem fx:id="defaultSkin" mnemonicParsing="false" onAction="#defaultSkin" text="Default Skin" />
-                        <MenuItem fx:id="reverseSkin" mnemonicParsing="false" onAction="#reverseSkin" text="Reverse Skin" />
-                        <MenuItem fx:id="blueSkin" mnemonicParsing="false" onAction="#blueSkin" text="Blue Skin" />
-                        <MenuItem fx:id="maroonSkin" mnemonicParsing="false" onAction="#maroonSkin" text="Maroon Skin" />
-                        <MenuItem fx:id="lavendarSkin" mnemonicParsing="false" onAction="#lavendarSkin" text="Lavender Skin" />
+                        <MenuItem fx:id="defaultSkin" mnemonicParsing="false" onAction="#defaultSkin" text="Default" />
+                        <MenuItem fx:id="reverseSkin" mnemonicParsing="false" onAction="#reverseSkin" text="Reverse" />
+                        <MenuItem fx:id="blueSkin" mnemonicParsing="false" onAction="#blueSkin" text="Bach Blue" />
+                        <MenuItem fx:id="maroonSkin" mnemonicParsing="false" onAction="#maroonSkin" text="Mozart Maroon" />
+                        <MenuItem fx:id="lavendarSkin" mnemonicParsing="false" onAction="#lavendarSkin" text="Liszt Lavender" />
                     </items>
                   </Menu>
               <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
