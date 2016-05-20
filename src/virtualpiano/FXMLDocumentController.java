@@ -42,96 +42,113 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button play;
     //white keys    
-   @FXML
-   private Rectangle C2;
+    @FXML
+    private Rectangle C2;
    
-   @FXML
+    @FXML
     private Rectangle D2;
    
-   @FXML
-   private Rectangle E2;
+    @FXML
+    private Rectangle E2;
    
-   @FXML
-   private Rectangle F2;
+    @FXML
+    private Rectangle F2;
    
-   @FXML
-   private Rectangle G2;
+    @FXML
+    private Rectangle G2;
    
-   @FXML
-   private Rectangle A2;
+    @FXML
+    private Rectangle A2;
    
-   @FXML
-   private Rectangle B2;
+    @FXML
+    private Rectangle B2;
    
-   @FXML
-   private Rectangle D3;
+    @FXML
+    private Rectangle D3;
    
-   @FXML
-   private Rectangle E3;
+    @FXML
+    private Rectangle E3;
    
-   @FXML
-   private Rectangle F3;
+    @FXML
+    private Rectangle F3;
+
+    @FXML
+    private Rectangle G3;
+
+    @FXML
+    private Rectangle A3;
+
+    @FXML
+    private Rectangle B3;
+
+    @FXML
+    private Rectangle C3;
+
+    //Black keys 
+    @FXML
+    private Rectangle C2s;
+
+    @FXML
+    private Rectangle D2s;
+
+    @FXML
+    private Rectangle F2s;
+
+    @FXML
+    private Rectangle G2s;
+
+    @FXML
+    private Rectangle B2f;
+
+    @FXML
+    private Rectangle C3s;
+
+    @FXML
+    private Rectangle D3s;
+
+    @FXML
+    private Rectangle F3s;
+
+    @FXML
+    private Rectangle G3s;
+
+    @FXML
+    private Rectangle B3f;
    
-   @FXML
-   private Rectangle G3;
-   
-   @FXML
-   private Rectangle A3;
-   
-   @FXML
-   private Rectangle B3;
-   
-   @FXML
-   private Rectangle C3;
-   
-   //Black keys 
-   @FXML
-   private Rectangle C2s;
-   
-   @FXML
-   private Rectangle D2s;
-   
-   @FXML
-   private Rectangle F2s;
-   
-   @FXML
-   private Rectangle G2s;
-   
-   @FXML
-   private Rectangle B2f;
-   
-   @FXML
-   private Rectangle C3s;
-   
-   @FXML
-   private Rectangle D3s;
-   
-   @FXML
-   private Rectangle F3s;
-   
-   @FXML
-   private Rectangle G3s;
-   
-   @FXML
-   private Rectangle B3f;
-   
-   
+   //menu bar
    @FXML
    private MenuBar menu;
    
-   
+   //menu choices
    @FXML
    private Menu file;
-   
-   
    @FXML
    private Menu help;
+   
    
    @FXML
    private MenuItem quit;
    
    @FXML
    private MenuItem about;
+   
+   
+   @FXML
+   private Menu octaves;
+   
+   @FXML
+   private MenuItem zero_one;
+   @FXML
+   private MenuItem one_two;
+   @FXML
+   private MenuItem two_three;
+   @FXML
+   private MenuItem three_four;
+   @FXML
+   private MenuItem four_five;
+   @FXML
+   private MenuItem five_six;
+   
    
    @FXML
    private Menu skins;
@@ -144,9 +161,10 @@ public class FXMLDocumentController implements Initializable {
    private MenuItem lavendarSkin;
     @FXML
    private MenuItem maroonSkin;
-   
     @FXML
    private MenuItem defaultSkin;
+   @FXML
+   private MenuItem rainbowSkin;
 
  
    //DO NOT DELETE THIS
@@ -255,6 +273,10 @@ public class FXMLDocumentController implements Initializable {
     public void defaultSkin(ActionEvent event){
         VirtualPiano.switchToDefault();
     }
+    public void rainbowSkin(ActionEvent event){
+        VirtualPiano.switchToRainbow();
+    }
+    
     public void showKeyPlayed(Rectangle rec){
         //rec is the original key, not the hidden key
      Paint temp = rec.getFill();
@@ -280,7 +302,7 @@ public class FXMLDocumentController implements Initializable {
        showKeyPlayed(rectangle);
        
     }
-   
+    
     public void playC2(MouseEvent event){
         playSound("c2.wav", C2);    
     }

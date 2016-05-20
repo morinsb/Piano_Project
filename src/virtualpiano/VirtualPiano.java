@@ -52,6 +52,10 @@ public class VirtualPiano extends Application {
         appInstance.scene.getStylesheets().clear();
          appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("default.css").toExternalForm());
     }
+    public static void switchToRainbow(){
+        appInstance.scene.getStylesheets().clear();
+        appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("rachmaninoffRainbow.css").toExternalForm());
+    }
     
     /**
      * @param args the command line arguments

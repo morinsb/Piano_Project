@@ -38,7 +38,6 @@
                   <Rectangle id="F3s" fx:id="F3s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="482.0" layoutY="152.0" onMousePressed="#playF3s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
                   <Rectangle id="G3s" fx:id="G3s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="526.0" layoutY="152.0" onMousePressed="#playG3s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
                   <Rectangle id="B3f" fx:id="B3f" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="570.0" layoutY="152.0" onMousePressed="#playB3f" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Button fx:id="play" layoutX="508.0" layoutY="88.0" mnemonicParsing="false" onMousePressed="#playRec" prefHeight="44.0" prefWidth="65.0" text="Play" />
                   <ToggleButton fx:id="rec" layoutX="509.0" layoutY="31.0" mnemonicParsing="false" onMousePressed="#record" text="Record" />
                </children>
             </AnchorPane>
@@ -52,6 +51,7 @@
                     <items>
                         <MenuItem fx:id="defaultSkin" mnemonicParsing="false" onAction="#defaultSkin" text="Default Skin" />
                         <MenuItem fx:id="reverseSkin" mnemonicParsing="false" onAction="#reverseSkin" text="Reverse Skin" />
+                        <MenuItem fx:id="rainbowSkin" mnemonicParsing="false" onAction="#rainbowSkin" text="Rainbow Skin" />
                         <MenuItem fx:id="blueSkin" mnemonicParsing="false" onAction="#blueSkin" text="Blue Skin" />
                         <MenuItem fx:id="maroonSkin" mnemonicParsing="false" onAction="#maroonSkin" text="Maroon Skin" />
                         <MenuItem fx:id="lavendarSkin" mnemonicParsing="false" onAction="#lavendarSkin" text="Lavender Skin" />
