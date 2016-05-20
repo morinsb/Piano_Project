@@ -136,8 +136,7 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private Menu octaves;
    
-   @FXML
-   private MenuItem zero_one;
+   
    @FXML
    private MenuItem one_two;
    @FXML
