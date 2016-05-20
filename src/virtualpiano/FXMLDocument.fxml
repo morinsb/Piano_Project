@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -9,10 +8,6 @@
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane id="AnchorPane" prefHeight="463.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="virtualpiano.FXMLDocumentController">
-<stylesheets>
-       
-        
-    </stylesheets>  
     <children>
       <BorderPane layoutX="7.0" layoutY="31.0" prefHeight="224.0" prefWidth="639.0">
          <left>
@@ -43,10 +38,6 @@
                   <Rectangle id="G3s" fx:id="G3s" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="526.0" layoutY="152.0" onMousePressed="#playG3s" stroke="BLACK" strokeType="INSIDE" width="29.0" />
                   <Rectangle id="B3f" fx:id="B3f" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="570.0" layoutY="152.0" onMousePressed="#playB3f" stroke="BLACK" strokeType="INSIDE" width="29.0" />
                </children>
-               <stylesheets>
-                  <URL value="@newskin.css" />
-                  <URL value="@default.css" />
-               </stylesheets>
             </AnchorPane>
          </left>
       </BorderPane>

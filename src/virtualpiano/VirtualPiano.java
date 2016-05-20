@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * @author csstudent
  */
 public class VirtualPiano extends Application {
-    private Parent root ;
+    private Parent root;
     private Scene scene;
     public static VirtualPiano appInstance;
     
@@ -32,16 +32,18 @@ public class VirtualPiano extends Application {
     }
     
     public static void switchToReverse(){
-         appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("reverseDefault.css").toExternalForm());
+        appInstance.scene.getStylesheets().clear();
+        appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("reverseDefault.css").toExternalForm());
+
     }
     public static void switchToBlue(){
-        appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("blueBach.css").toExternalForm());
+        appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("bachBlue.css").toExternalForm());
     }
     public static void switchToLavendar(){
-         appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("lisztLavendar.css").toExternalForm());
+         appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("lisztLavender.css").toExternalForm());
     }
     public static void switchToMaroon(){
-        appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("maroonMozart.css").toExternalForm());
+        appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("mozartMaroon.css").toExternalForm());
     }
     public static void switchToDefault(){
          appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("default.css").toExternalForm());

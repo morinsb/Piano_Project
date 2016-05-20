@@ -143,6 +143,7 @@ public class FXMLDocumentController implements Initializable {
    private MenuItem lavendarSkin;
     @FXML
    private MenuItem maroonSkin;
+   
     @FXML
    private MenuItem defaultSkin;
 
@@ -235,10 +236,8 @@ public class FXMLDocumentController implements Initializable {
             }
         }
     }
-    //method to play the piano notes
-    
-     
-    
+  
+
     public void reverseSkin(ActionEvent event){
         VirtualPiano.switchToReverse();
     }
@@ -311,7 +310,7 @@ public class FXMLDocumentController implements Initializable {
         playSound("a2.wav", A2); 
     }
     public void playB2f(MouseEvent event){
-        playSound("as2.wav", B3f); 
+        playSound("as2.wav", B2f); 
     }
     public void playB2(MouseEvent event){
         playSound("b2.wav", B2); 
