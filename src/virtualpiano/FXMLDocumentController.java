@@ -35,15 +35,36 @@ import javafx.scene.shape.Rectangle;
  * @author Sam Morin, Delnaz Patel, Emma Rafkin, Mia Waggoner
  */
 public class FXMLDocumentController implements Initializable {
+    
+    //
     //record button
     @FXML
     private ToggleButton rec;
     //play buttons
     @FXML
     private Button play;
+    
     //white keys    
     @FXML
-    private Rectangle C2;
+    private Rectangle C1;
+   
+    @FXML
+    private Rectangle D1;
+   
+    @FXML
+    private Rectangle E1;
+   
+    @FXML
+    private Rectangle F1;
+   
+    @FXML
+    private Rectangle G1;
+   
+    @FXML
+    private Rectangle A1;
+   
+    @FXML
+    private Rectangle B1;
    
     @FXML
     private Rectangle D2;
@@ -53,67 +74,49 @@ public class FXMLDocumentController implements Initializable {
    
     @FXML
     private Rectangle F2;
-   
+
     @FXML
     private Rectangle G2;
-   
+
     @FXML
     private Rectangle A2;
-   
+
     @FXML
     private Rectangle B2;
-   
-    @FXML
-    private Rectangle D3;
-   
-    @FXML
-    private Rectangle E3;
-   
-    @FXML
-    private Rectangle F3;
 
     @FXML
-    private Rectangle G3;
-
-    @FXML
-    private Rectangle A3;
-
-    @FXML
-    private Rectangle B3;
-
-    @FXML
-    private Rectangle C3;
+    private Rectangle C2;
 
     //Black keys 
     @FXML
-    private Rectangle C2s;
+    private Rectangle Cs1;
 
     @FXML
-    private Rectangle D2s;
+    private Rectangle Ds1;
 
     @FXML
-    private Rectangle F2s;
+    private Rectangle Fs1;
 
     @FXML
-    private Rectangle G2s;
+    private Rectangle Gs1;
 
     @FXML
-    private Rectangle B2f;
+    private Rectangle Bf1;
 
     @FXML
-    private Rectangle C3s;
+    private Rectangle Cs2;
 
     @FXML
-    private Rectangle D3s;
+    private Rectangle Ds2;
 
     @FXML
-    private Rectangle F3s;
+    private Rectangle Fs2;
 
     @FXML
-    private Rectangle G3s;
+    private Rectangle Gs2;
 
     @FXML
-    private Rectangle B3f;
+    private Rectangle Bf2;
    
    //menu bar
    @FXML
@@ -136,7 +139,8 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private Menu octaves;
    
-   
+   @FXML
+   private MenuItem zero_one;
    @FXML
    private MenuItem one_two;
    @FXML
@@ -296,97 +300,121 @@ public class FXMLDocumentController implements Initializable {
             rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, filename, rectangle));
             
         }
-       URL sound = getClass().getResource("pianoNotes/" + filename);
+       URL sound = getClass().getResource("pianoNotes/" + VirtualPiano.getOctave() + "/" + filename);
        AudioClip play = new AudioClip(sound.toString());
        play.play();
        showKeyPlayed(rectangle);
        
     }
-    
+    //play notes
+    public void playC1(MouseEvent event){
+        playSound("c1.wav", C1);    
+    }
+    public void playCs1(MouseEvent event){
+        playSound("cs1.wav", Cs1); 
+    }
+    public void playD1(MouseEvent event){
+        playSound("d1.wav", D1); 
+    }
+    public void playDs1(MouseEvent event){
+        playSound("ds1.wav", Ds1); 
+    }
+    public void playE1(MouseEvent event){
+        playSound("e1.wav", E1); 
+    }
+    public void playF1(MouseEvent event){
+        playSound("f1.wav",F1); 
+    }
+    public void playFs1(MouseEvent event){
+        playSound("fs1.wav", Fs1); 
+    }
+    public void playG1(MouseEvent event){
+        playSound("g1.wav", G1); 
+    }
+    public void playGs1(MouseEvent event){
+        playSound("gs1.wav", Gs1); 
+    }
+    public void playA1(MouseEvent event){
+        playSound("a1.wav", A1); 
+    }
+    public void playBf1(MouseEvent event){
+        playSound("as1.wav", Bf1); 
+    }
+    public void playB1(MouseEvent event){
+        playSound("b1.wav", B1); 
+    }
     public void playC2(MouseEvent event){
-        playSound("c2.wav", C2);    
+        playSound("c2.wav", C2); 
     }
-    public void playC2s(MouseEvent event){
-        playSound("cs2.wav", C2s); 
+    
+    public void playCs2(MouseEvent event){
+        playSound("cs2.wav", Cs2); 
     }
+    
     public void playD2(MouseEvent event){
         playSound("d2.wav", D2); 
     }
-    public void playD2s(MouseEvent event){
-        playSound("ds2.wav", D2s); 
+    
+    public void playDs2(MouseEvent event){
+        playSound("ds2.wav", Ds2); 
     }
+    
     public void playE2(MouseEvent event){
         playSound("e2.wav", E2); 
     }
+    
     public void playF2(MouseEvent event){
-        playSound("f2.wav",F2); 
+        playSound("f2.wav", F2); 
     }
-    public void playF2s(MouseEvent event){
-        playSound("fs2.wav", F2s); 
+    
+    public void playFs2(MouseEvent event){
+        playSound("fs2.wav", Fs2); 
     }
+    
     public void playG2(MouseEvent event){
         playSound("g2.wav", G2); 
     }
-    public void playG2s(MouseEvent event){
-        playSound("gs2.wav", G2s); 
+    
+    public void playGs2(MouseEvent event){
+        playSound("gs2.wav", Gs2); 
     }
+    
     public void playA2(MouseEvent event){
         playSound("a2.wav", A2); 
     }
-    public void playB2f(MouseEvent event){
-        playSound("as2.wav", B2f); 
+    
+    public void playBf2(MouseEvent event){
+        playSound("as2.wav", Bf2); 
     }
+    
     public void playB2(MouseEvent event){
         playSound("b2.wav", B2); 
     }
-    public void playC3(MouseEvent event){
-        playSound("c3.wav", C3); 
+    
+    
+    //set octave methods
+    public void zero_one(ActionEvent event){
+       changeOctave("zero_one"); 
+    }
+    public void one_two(ActionEvent event){
+        changeOctave("one_two");
+    }
+    public void two_three(ActionEvent event){
+        changeOctave("two_three");
+    }
+    public void three_four(ActionEvent event){
+        changeOctave("three_four");
+    }
+    public void four_five(ActionEvent event){
+        changeOctave("four_five");
+    }
+    public void five_six(ActionEvent event){
+        changeOctave("five_six");
     }
     
-    public void playC3s(MouseEvent event){
-        playSound("cs3.wav", C3s); 
+    public void changeOctave(String newOctave){
+        VirtualPiano.currentOctave = newOctave;
     }
-    
-    public void playD3(MouseEvent event){
-        playSound("d3.wav", D3); 
-    }
-    
-    public void playD3s(MouseEvent event){
-        playSound("ds3.wav", D3s); 
-    }
-    
-    public void playE3(MouseEvent event){
-        playSound("e3.wav", E3); 
-    }
-    
-    public void playF3(MouseEvent event){
-        playSound("f3.wav", F3); 
-    }
-    
-    public void playF3s(MouseEvent event){
-        playSound("fs3.wav", F3s); 
-    }
-    
-    public void playG3(MouseEvent event){
-        playSound("g3.wav", G3); 
-    }
-    
-    public void playG3s(MouseEvent event){
-        playSound("gs3.wav", G3s); 
-    }
-    
-    public void playA3(MouseEvent event){
-        playSound("a3.wav", A3); 
-    }
-    
-    public void playB3f(MouseEvent event){
-        playSound("as3.wav", B3f); 
-    }
-    
-    public void playB3(MouseEvent event){
-        playSound("b3.wav", B3); 
-    }
-  
     
     
     public void quit(ActionEvent event){
@@ -402,98 +430,98 @@ public class FXMLDocumentController implements Initializable {
     }
     public void keyboardPlay(KeyEvent event){
         if(event.getCode()==KeyCode.A){
-            playSound("c2.wav", C2);
+            playSound("c1.wav", C1);
         
         }
         if(event.getCode()==KeyCode.S){
-            playSound("d2.wav", D2);
+            playSound("d1.wav", D1);
         
         }
         if(event.getCode()==KeyCode.D){
-            playSound("e2.wav", E2);
+            playSound("e1.wav", E1);
         
         }
         if(event.getCode()==KeyCode.F){
-            playSound("f2.wav", F2);
+            playSound("f1.wav", F1);
         
         }
         if(event.getCode()==KeyCode.G){
-            playSound("g2.wav", G2);
+            playSound("g1.wav", G1);
         
         }
         if(event.getCode()==KeyCode.H){
-            playSound("a2.wav", A2);
+            playSound("a1.wav", A1);
         
         }
         if(event.getCode()==KeyCode.J){
-            playSound("b2.wav", B2);
+            playSound("b1.wav", B1);
         
         }
         if(event.getCode()==KeyCode.K){
-            playSound("c3.wav", C3);
+            playSound("c2.wav", C2);
         
         }
         if(event.getCode()==KeyCode.L){
-            playSound("d3.wav", D3);
+            playSound("d2.wav", D2);
         
         }
         if(event.getCode()==KeyCode.Z){
-            playSound("e3.wav", E3);
+            playSound("e2.wav", E2);
         
         }
         if(event.getCode()==KeyCode.X){
-            playSound("f3.wav", F3);
+            playSound("f2.wav", F2);
         
         }
         if(event.getCode()==KeyCode.C){
-            playSound("g3.wav", G3);
+            playSound("g2.wav", G2);
         
         }
         if(event.getCode()==KeyCode.V){
-            playSound("a3.wav", A3);
+            playSound("a2.wav", A2);
         
         }
         if(event.getCode()==KeyCode.B){
-            playSound("b3.wav", B3);
+            playSound("b2.wav", B2);
         
         }
         if(event.getCode()==KeyCode.Q){
-            playSound("cs2.wav", C2s);
+            playSound("cs1.wav", Cs1);
         
         }
         if(event.getCode()==KeyCode.W){
-            playSound("ds2.wav", D2s);
+            playSound("ds1.wav", Ds1);
         
         }
         if(event.getCode()==KeyCode.E){
-            playSound("fs2.wav", F2s);
+            playSound("fs1.wav", Fs1);
         
         }
         if(event.getCode()==KeyCode.R){
-            playSound("gs2.wav", G2s);
+            playSound("gs1.wav", Gs1);
         
         }
         if(event.getCode()==KeyCode.T){
-            playSound("as2.wav", B2f);
+            playSound("as1.wav", Bf1);
         
         }
         if(event.getCode()==KeyCode.Y){
-            playSound("cs3.wav", C3s);
+            playSound("cs2.wav", Cs2);
         
         }
         if(event.getCode()==KeyCode.U){
-            playSound("ds3.wav", D3s);
+            playSound("ds2.wav", Ds2);
         }
         if(event.getCode()==KeyCode.I){
-            playSound("fs3.wav", F3s);
+            playSound("fs2.wav", Fs2);
         
         }
         if(event.getCode()==KeyCode.O){
-            playSound("gs3.wav", G3s);
+            playSound("gs2.wav", Gs2);
         
         }
         if(event.getCode()==KeyCode.P){
-            playSound("as3.wav", B3f);
+            playSound("as2.wav", Bf2);
         
         }
     }

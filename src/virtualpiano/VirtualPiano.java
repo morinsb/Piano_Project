@@ -18,10 +18,12 @@ import javafx.stage.Stage;
 public class VirtualPiano extends Application {
     private Parent root;
     private Scene scene;
+    public static String currentOctave;
     public static VirtualPiano appInstance;
     
     @Override
     public void start(Stage stage) throws Exception {
+     currentOctave = "two_three";
      appInstance = this;
      root= FXMLLoader.load(getClass().getResource("FXMLDocument.fxml")); 
      scene = new Scene(root);
@@ -56,6 +58,11 @@ public class VirtualPiano extends Application {
         appInstance.scene.getStylesheets().clear();
         appInstance.scene.getStylesheets().add(appInstance.getClass().getResource("rachmaninoffRainbow.css").toExternalForm());
     }
+    
+    public static String getOctave(){
+        return currentOctave;
+    }
+    
     
     /**
      * @param args the command line arguments
