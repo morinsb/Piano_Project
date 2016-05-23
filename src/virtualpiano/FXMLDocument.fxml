@@ -56,16 +56,16 @@
                   <Label layoutX="512.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="G" />
                   <Label layoutX="557.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="A" />
                   <Label layoutX="599.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="B" />
-                  <Label layoutX="43.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="C#" />
-                  <Label layoutX="87.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="D#" />
-                  <Label layoutX="174.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="F#" />
-                  <Label layoutX="219.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="G#" />
-                  <Label layoutX="395.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="D#" />
-                  <Label layoutX="351.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="C#" />
-                  <Label layoutX="263.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
-                  <Label layoutX="483.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="F#" />
-                  <Label layoutX="527.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="G#" />
-                  <Label layoutX="572.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
+                  <Label layoutX="43.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="C#" textFill="WHITE" />
+                  <Label layoutX="87.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="D#" textFill="WHITE" />
+                  <Label layoutX="174.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="F#" textFill="WHITE" />
+                  <Label layoutX="219.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="G#" textFill="WHITE" />
+                  <Label layoutX="395.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="D#" textFill="WHITE" />
+                  <Label layoutX="351.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="C#" textFill="WHITE" />
+                  <Label layoutX="263.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" textFill="WHITE" />
+                  <Label layoutX="483.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="F#" textFill="WHITE" />
+                  <Label layoutX="527.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="G#" textFill="WHITE" />
+                  <Label layoutX="572.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" textFill="WHITE" />
                </children>
             </AnchorPane>
          </left>
@@ -84,7 +84,6 @@
                         <MenuItem fx:id="lavendarSkin" mnemonicParsing="false" onAction="#lavendarSkin" text="Lavender Skin" />
                     </items>
                   </Menu>
-              <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
                   <Menu fx:id="octaves" mnemonicParsing="false" text="Octaves">
                     <items>
                       <MenuItem fx:id="zero_one" mnemonicParsing="false" onAction="#zero_one" text="Zeroth and First" />
@@ -95,6 +94,7 @@
                         <MenuItem fx:id="five_six" mnemonicParsing="false" onAction="#five_six" text="Fifth and Sixth" />
                     </items>
                   </Menu>
+              <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
             </items>
           </Menu>
           <Menu fx:id="help" mnemonicParsing="false" text="Help">
