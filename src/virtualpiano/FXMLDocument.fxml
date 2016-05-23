@@ -14,7 +14,7 @@
     <children>
       <BorderPane layoutX="7.0" layoutY="31.0" prefHeight="224.0" prefWidth="639.0">
          <left>
-            <AnchorPane focusTraversable="true" onKeyPressed="#keyboardPlay" prefHeight="246.0" prefWidth="639.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="getFrustrated" focusTraversable="true" onKeyPressed="#keyboardPlay" prefHeight="246.0" prefWidth="639.0" BorderPane.alignment="CENTER">
                <children>
                   <Rectangle id="C2" fx:id="C1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="12.0" layoutY="152.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle id="D2" fx:id="D1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="56.0" layoutY="152.0" onMousePressed="#playD1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
@@ -29,7 +29,7 @@
                   <Rectangle id="F3" fx:id="F2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="452.0" layoutY="152.0" onMousePressed="#playF2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle id="G3" fx:id="G2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="496.0" layoutY="152.0" onMousePressed="#playG2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle id="A3" fx:id="A2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="540.0" layoutY="152.0" onMousePressed="#playA2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="B3" fx:id="B2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="584.0" layoutY="152.0" onMousePressed="#playB2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="B3" fx:id="B2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="583.0" layoutY="152.0" onMousePressed="#playB2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle id="C2s" fx:id="Cs1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="42.0" layoutY="153.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
                   <Rectangle id="D2s" fx:id="Ds1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="86.0" layoutY="152.0" onMousePressed="#playDs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
                   <Rectangle id="F2s" fx:id="Fs1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="174.0" layoutY="152.0" onMousePressed="#playFs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
@@ -39,9 +39,9 @@
                   <Rectangle id="D3s" fx:id="Ds2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="394.0" layoutY="152.0" onMousePressed="#playDs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
                   <Rectangle id="F3s" fx:id="Fs2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="482.0" layoutY="152.0" onMousePressed="#playFs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
                   <Rectangle id="G3s" fx:id="Gs2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="526.0" layoutY="152.0" onMousePressed="#playGs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="B3f" fx:id="Bf2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="570.0" layoutY="152.0" onMousePressed="#playBf2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <ToggleButton fx:id="rec" layoutX="509.0" layoutY="31.0" mnemonicParsing="false" onMousePressed="#record" text="Record" />
-                  <Button fx:id="play" layoutX="511.0" layoutY="92.0" mnemonicParsing="false" onMouseClicked="#playRec" text="Play" />
+                  <Rectangle id="B3f" fx:id="Bf2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="569.0" layoutY="152.0" onMousePressed="#playBf2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <ToggleButton fx:id="rec" layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onMousePressed="#record" text="Record" />
+                  <Button fx:id="play" layoutX="548.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#playRec" text="Play" />
                   <Label layoutX="28.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="C" />
                   <Label layoutX="72.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="D" />
                   <Label layoutX="115.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="E" />
