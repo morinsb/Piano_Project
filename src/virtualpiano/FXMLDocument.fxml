@@ -84,7 +84,6 @@
                         <MenuItem fx:id="lavendarSkin" mnemonicParsing="false" onAction="#lavendarSkin" text="Lavender Skin" />
                     </items>
                   </Menu>
-              <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
                   <Menu fx:id="octaves" mnemonicParsing="false" text="Octaves">
                     <items>
                       <MenuItem fx:id="zero_one" mnemonicParsing="false" onAction="#zero_one" text="Zeroth and First" />
@@ -95,6 +94,7 @@
                         <MenuItem fx:id="five_six" mnemonicParsing="false" onAction="#five_six" text="Fifth and Sixth" />
                     </items>
                   </Menu>
+              <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
             </items>
           </Menu>
           <Menu fx:id="help" mnemonicParsing="false" text="Help">
