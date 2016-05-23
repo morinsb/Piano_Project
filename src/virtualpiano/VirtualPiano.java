@@ -33,12 +33,10 @@ public class VirtualPiano extends Application {
      scene.getStylesheets().add(cssFilePath);
      stage.setScene(scene);
      stage.show();
-     URL sound = getClass().getResource("pianoNotes/accordian.wav");
-     AudioClip play = new AudioClip(sound.toString());
-     play.play();
-     URL sound1 = getClass().getResource("pianoNotes/accordian.wav");
-     AudioClip play1 = new AudioClip(sound1.toString());
-     play1.play();
+     //URL sound = getClass().getResource("pianoNotes/accordian.wav");
+     //AudioClip play = new AudioClip(sound.toString());
+     //play.play();
+     
         
      
     }
