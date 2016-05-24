@@ -38,7 +38,7 @@ import javafx.scene.shape.Rectangle;
  */
 public class FXMLDocumentController implements Initializable {
     
-    //
+    //getFrustrated!
     //record button
     @FXML
     private ToggleButton rec;
