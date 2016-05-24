@@ -66,11 +66,12 @@
                   <Label layoutX="483.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="F#" />
                   <Label layoutX="527.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="G#" />
                   <Label layoutX="572.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
+                  <Button fx:id="otj" layoutX="42.0" layoutY="31.0" mnemonicParsing="false" onMouseReleased="#playOdeToJoy" text="Ode To Joy" />
                </children>
             </AnchorPane>
          </left>
       </BorderPane>
-      <MenuBar fx:id="menu" layoutX="3.0" prefHeight="29.0" prefWidth="639.0">
+      <MenuBar fx:id="menu" layoutX="3.0" onMouseReleased="#playOdeToJoy" prefHeight="29.0" prefWidth="639.0">
         <menus>
           <Menu fx:id="file" mnemonicParsing="false" text="File">
             <items>
