@@ -42,6 +42,9 @@ public class FXMLDocumentController implements Initializable {
     //record button
     @FXML
     private ToggleButton rec;
+    
+    @FXML
+    private ToggleButton metronome;
     //play buttons
     @FXML
     private Button play;
@@ -233,7 +236,10 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }  
+    } 
+    public void metronome(MouseEvent event){
+         
+    }
     
     //method to start recording
     public void record(MouseEvent event){

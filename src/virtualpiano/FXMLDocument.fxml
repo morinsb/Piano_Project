@@ -14,7 +14,7 @@
     <children>
       <BorderPane layoutX="7.0" layoutY="31.0" prefHeight="224.0" prefWidth="639.0">
          <left>
-            <AnchorPane fx:id="getFrustrated" focusTraversable="true" onKeyPressed="#keyboardPlay" prefHeight="246.0" prefWidth="639.0" BorderPane.alignment="CENTER">
+            <AnchorPane focusTraversable="true" onKeyPressed="#keyboardPlay" prefHeight="246.0" prefWidth="639.0" BorderPane.alignment="CENTER">
                <children>
                   <Rectangle id="C2" fx:id="C1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="12.0" layoutY="152.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
                   <Rectangle id="D2" fx:id="D1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="56.0" layoutY="152.0" onMousePressed="#playD1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
@@ -67,6 +67,7 @@
                   <Label layoutX="527.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="G#" />
                   <Label layoutX="572.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
                   <Button fx:id="otj" layoutX="42.0" layoutY="31.0" mnemonicParsing="false" onMouseReleased="#playOdeToJoy" text="Ode To Joy" />
+                  <ToggleButton fx:id="metronome" layoutX="409.0" layoutY="14.0" mnemonicParsing="false" onMousePressed="#metronome" text="Metronome" />
                </children>
             </AnchorPane>
          </left>
