@@ -280,130 +280,130 @@ public class FXMLDocumentController implements Initializable {
     
   
     public void playOdeToJoy(MouseEvent event){
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("f2.wav", F2);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         sleep(500);
-        playSound("g2.wav", G2);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
         sleep(500);
-        playSound("g2.wav", G2);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
         sleep(500);
-        playSound("f2.wav", F2);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(500);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(700);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(200);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(800);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("f2.wav", F2);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         sleep(500);
-        playSound("g2.wav", G2);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
         sleep(500);
-        playSound("g2.wav", G2);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
         sleep(500);
-        playSound("f2.wav", F2);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(500);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(700);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(200);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(800);
         //verse 2
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(200);
-        playSound("f2.wav", F2);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         sleep(200);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(700);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(200);
-        playSound("f2.wav", F2);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         sleep(200);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("g1.wav", G1);
+        playSound(VirtualPiano.getOctave() + "g1.wav", G1);
         sleep(800);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("f2.wav", F2);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         sleep(500);
-        playSound("g2.wav", G2);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
         sleep(500);
-        playSound("g2.wav", G2);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
         sleep(500);
-        playSound("f2.wav", F2);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(500);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(500);
-        playSound("e2.wav", E2);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         sleep(500);
-        playSound("d2.wav", D2);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         sleep(700);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(200);
-        playSound("c2.wav", C2);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
     }
     public void reverseSkin(ActionEvent event){
         VirtualPiano.switchToReverse();
@@ -443,7 +443,7 @@ public class FXMLDocumentController implements Initializable {
             rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, filename, rectangle));
             
         }
-       URL sound = getClass().getResource("pianoNotes/" + VirtualPiano.getOctave() + "/" + filename);
+       URL sound = getClass().getResource("pianoNotes/" + filename);
        AudioClip play = new AudioClip(sound.toString());
        play.play();
        showKeyPlayed(rectangle);
@@ -451,87 +451,87 @@ public class FXMLDocumentController implements Initializable {
     }
     //play notes
     public void playC1(MouseEvent event){
-        playSound("c1.wav", C1);    
+        playSound(VirtualPiano.getOctave() + "c1.wav", C1);    
     }
     public void playCs1(MouseEvent event){
-        playSound("cs1.wav", Cs1); 
+        playSound(VirtualPiano.getOctave() + "cs1.wav", Cs1); 
     }
     public void playD1(MouseEvent event){
-        playSound("d1.wav", D1); 
+        playSound(VirtualPiano.getOctave() + "d1.wav", D1); 
     }
     public void playDs1(MouseEvent event){
-        playSound("ds1.wav", Ds1); 
+        playSound(VirtualPiano.getOctave() + "ds1.wav", Ds1); 
     }
     public void playE1(MouseEvent event){
-        playSound("e1.wav", E1); 
+        playSound(VirtualPiano.getOctave() + "e1.wav", E1); 
     }
     public void playF1(MouseEvent event){
-        playSound("f1.wav",F1); 
+        playSound(VirtualPiano.getOctave() + "f1.wav",F1); 
     }
     public void playFs1(MouseEvent event){
-        playSound("fs1.wav", Fs1); 
+        playSound(VirtualPiano.getOctave() + "fs1.wav", Fs1); 
     }
     public void playG1(MouseEvent event){
-        playSound("g1.wav", G1); 
+        playSound(VirtualPiano.getOctave() + "g1.wav", G1); 
     }
     public void playGs1(MouseEvent event){
-        playSound("gs1.wav", Gs1); 
+        playSound(VirtualPiano.getOctave() + "gs1.wav", Gs1); 
     }
     public void playA1(MouseEvent event){
-        playSound("a1.wav", A1); 
+        playSound(VirtualPiano.getOctave() + "a1.wav", A1); 
     }
     public void playBf1(MouseEvent event){
-        playSound("as1.wav", Bf1); 
+        playSound(VirtualPiano.getOctave() + "as1.wav", Bf1); 
     }
     public void playB1(MouseEvent event){
-        playSound("b1.wav", B1); 
+        playSound(VirtualPiano.getOctave() + "b1.wav", B1); 
     }
     public void playC2(MouseEvent event){
-        playSound("c2.wav", C2); 
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2); 
     }
     
     public void playCs2(MouseEvent event){
-        playSound("cs2.wav", Cs2); 
+        playSound(VirtualPiano.getOctave() + "cs2.wav", Cs2); 
     }
     
     public void playD2(MouseEvent event){
-        playSound("d2.wav", D2); 
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2); 
     }
     
     public void playDs2(MouseEvent event){
-        playSound("ds2.wav", Ds2); 
+        playSound(VirtualPiano.getOctave() + "ds2.wav", Ds2); 
     }
     
     public void playE2(MouseEvent event){
-        playSound("e2.wav", E2); 
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2); 
     }
     
     public void playF2(MouseEvent event){
-        playSound("f2.wav", F2); 
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2); 
     }
     
     public void playFs2(MouseEvent event){
-        playSound("fs2.wav", Fs2); 
+        playSound(VirtualPiano.getOctave() + "fs2.wav", Fs2); 
     }
     
     public void playG2(MouseEvent event){
-        playSound("g2.wav", G2); 
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2); 
     }
     
     public void playGs2(MouseEvent event){
-        playSound("gs2.wav", Gs2); 
+        playSound(VirtualPiano.getOctave() + "gs2.wav", Gs2); 
     }
     
     public void playA2(MouseEvent event){
-        playSound("a2.wav", A2); 
+        playSound(VirtualPiano.getOctave() + "a2.wav", A2); 
     }
     
     public void playBf2(MouseEvent event){
-        playSound("as2.wav", Bf2); 
+        playSound(VirtualPiano.getOctave() + "as2.wav", Bf2); 
     }
     
     public void playB2(MouseEvent event){
-        playSound("b2.wav", B2); 
+        playSound(VirtualPiano.getOctave() + "b2.wav", B2); 
     }
     
     

@@ -13,6 +13,7 @@ import javafx.scene.shape.Rectangle;
  */
 public class RecordedNote {
     private long time;
+    private String octave;
     private String file;
     private Rectangle rectangle;
     public RecordedNote(long t, String f, Rectangle r){
@@ -29,6 +30,9 @@ public class RecordedNote {
      }
     public Rectangle getRec(){
      return rectangle;   
+    }
+    public String getRecOctave(){
+        return octave;
     }
     
 }
