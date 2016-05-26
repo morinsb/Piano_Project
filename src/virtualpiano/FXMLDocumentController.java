@@ -232,18 +232,26 @@ public class FXMLDocumentController implements Initializable {
    private long elapsedTime;
    private ArrayList<RecordedNote> rec1 = new ArrayList<RecordedNote>();
    private boolean isRecording = false;
+   private boolean metronomeOn = false;
+   
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
     public void metronome(MouseEvent event){
-        while(true){
-         playSound("Click1.wav");
-         
-        }
-        
+        metronomeOn=!metronomeOn;
+        playMetronome();
     }
+    //use a timeline?
+    public void playMetronome(){
+       PauseTransition pt = new PauseTransition(Duration.millis(1000));
+         while (metronomeOn == true){
+         playSound("Click1.wav");
+         pt.play();
+        } 
+    }
+    
     
     //method to start recording
     public void record(MouseEvent event){

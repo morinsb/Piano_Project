@@ -67,7 +67,7 @@
                   <Label layoutX="527.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="G#" />
                   <Label layoutX="572.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
                   <Button fx:id="otj" layoutX="42.0" layoutY="31.0" mnemonicParsing="false" onMouseReleased="#playOdeToJoy" text="Ode To Joy" />
-                  <ToggleButton fx:id="metronome" layoutX="409.0" layoutY="14.0" mnemonicParsing="false" onMousePressed="#metronome" text="Metronome" />
+                  <ToggleButton fx:id="metronome" layoutX="409.0" layoutY="14.0" mnemonicParsing="false" onMouseReleased="#metronome" text="Metronome" />
                </children>
             </AnchorPane>
          </left>
