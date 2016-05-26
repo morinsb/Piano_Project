@@ -238,7 +238,11 @@ public class FXMLDocumentController implements Initializable {
         // TODO
     } 
     public void metronome(MouseEvent event){
+        while(true){
+         playSound("Click1.wav");
          
+        }
+        
     }
     
     //method to start recording
@@ -277,7 +281,6 @@ public class FXMLDocumentController implements Initializable {
             
         } 
     }
-    
   
     public void playOdeToJoy(MouseEvent event){
         playSound(VirtualPiano.getOctave() + "e2.wav", E2);
@@ -448,6 +451,12 @@ public class FXMLDocumentController implements Initializable {
        play.play();
        showKeyPlayed(rectangle);
        
+    }
+    //method to play a sound that is not a piano note
+     public void playSound(String filename){
+       URL sound = getClass().getResource("pianoNotes/" + filename);
+       AudioClip play1 = new AudioClip(sound.toString());
+       play1.play(); 
     }
     //play notes
     public void playC1(MouseEvent event){
@@ -668,7 +677,12 @@ public class FXMLDocumentController implements Initializable {
         
         }
     }
-}
+          
+  
+    
+    
+    }
+
     
     
     
