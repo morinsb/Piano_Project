@@ -12,9 +12,13 @@ import javafx.util.Duration;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.Animation;
 import javafx.animation.FillTransition;
+import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -36,7 +40,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Sam Morin, Delnaz Patel, Emma Rafkin, Mia Waggoner
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController implements Initializable, EventHandler<ActionEvent> {
     
     //getFrustrated!
     //record button
@@ -233,6 +237,7 @@ public class FXMLDocumentController implements Initializable {
    private ArrayList<RecordedNote> rec1 = new ArrayList<RecordedNote>();
    private boolean isRecording = false;
    private boolean metronomeOn = false;
+   private Timeline t; 
    
    
     @Override
@@ -241,16 +246,17 @@ public class FXMLDocumentController implements Initializable {
     } 
     public void metronome(MouseEvent event){
         metronomeOn=!metronomeOn;
-        playMetronome();
+        Timeline tl = new Timeline();
+        tl.getKeyFrames().add(new KeyFrame(Duration.millis(500), this));
+        tl.setCycleCount(Animation.INDEFINITE);
+        if(metronomeOn = true){
+        tl.play();
+        }else{
+            tl.stop();
+        }
+        
     }
-    //use a timeline?
-    public void playMetronome(){
-       PauseTransition pt = new PauseTransition(Duration.millis(1000));
-         while (metronomeOn == true){
-         playSound("Click1.wav");
-         pt.play();
-        } 
-    }
+  
     
     
     //method to start recording
@@ -283,11 +289,12 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     public void sleep(int t){
-       try {
-            Thread.sleep(t);
-        } catch (InterruptedException ex) {
-            
-        } 
+      try{
+      Thread.sleep(t);
+      }catch(InterruptedException e){
+          
+      }
+       
     }
   
     public void reverseSkin(ActionEvent event){
@@ -688,6 +695,12 @@ public class FXMLDocumentController implements Initializable {
         playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         sleep(200);
         playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+    }
+
+    @Override
+    public void handle(ActionEvent event) {
+         playSound("Click1.wav");
+        
     }
     }
 
