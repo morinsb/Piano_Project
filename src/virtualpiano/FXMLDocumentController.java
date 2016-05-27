@@ -5,17 +5,13 @@
  */
 package virtualpiano;
 
-import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.util.ArrayList;
 import javafx.util.Duration;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.animation.FillTransition;
 import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -23,10 +19,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -231,30 +227,48 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
    private Rectangle B3fg;
    @FXML
    private Button otj;
+   @FXML
+   private Slider metronomeSlider;
+   
    
    private long startTime;
    private long elapsedTime;
    private ArrayList<RecordedNote> rec1 = new ArrayList<RecordedNote>();
    private boolean isRecording = false;
    private boolean metronomeOn = false;
-   private Timeline t; 
+   Timeline tl = new Timeline();
+   private double sliderValue;
+   
+   
    
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
+    @Override
+    public void handle(ActionEvent event) {
+         playSound("Click1.wav");
+        
+    }
+    
     public void metronome(MouseEvent event){
+        this.sliderValue = 60000/(metronomeSlider.getValue());
         metronomeOn=!metronomeOn;
-        Timeline tl = new Timeline();
-        tl.getKeyFrames().add(new KeyFrame(Duration.millis(500), this));
+        
+        tl.getKeyFrames().add(new KeyFrame(Duration.millis(this.sliderValue), this));
         tl.setCycleCount(Animation.INDEFINITE);
-        if(metronomeOn = true){
-        tl.play();
+        if(metronomeOn == true){ 
+            tl.play();
         }else{
             tl.stop();
+            tl.getKeyFrames().clear();
         }
         
+    }
+    public void getSliderValue(MouseEvent event){
+        this.sliderValue = 60000/(metronomeSlider.getValue());
+  
     }
   
     
@@ -697,12 +711,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
         playSound(VirtualPiano.getOctave() + "c2.wav", C2);
     }
 
-    @Override
-    public void handle(ActionEvent event) {
-         playSound("Click1.wav");
-        
-    }
-    }
+    
 
     
     
@@ -713,7 +722,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
     
    
    
-   
+}
    
    
    
