@@ -5,17 +5,17 @@
  */
 package virtualpiano;
 
-import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
 import javafx.util.Duration;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.animation.Animation;
 import javafx.animation.FillTransition;
-import javafx.animation.PauseTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -27,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -43,7 +44,7 @@ import javafx.stage.StageStyle;
  *
  * @author Sam Morin, Delnaz Patel, Emma Rafkin, Mia Waggoner
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController implements Initializable, EventHandler<ActionEvent> {
     
     //getFrustrated!
     @FXML
@@ -242,23 +243,51 @@ public class FXMLDocumentController implements Initializable {
    private Rectangle B3fg;
    @FXML
    private Button otj;
+   @FXML
+   private Slider metronomeSlider;
+   
    
    private long startTime;
    private long elapsedTime;
    private ArrayList<RecordedNote> rec1 = new ArrayList<RecordedNote>();
    private boolean isRecording = false;
+   private boolean metronomeOn = false;
+   Timeline tl = new Timeline();
+   private double sliderValue;
+   
+   
+   
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
-    public void metronome(MouseEvent event){
-        while(true){
+    @Override
+    public void handle(ActionEvent event) {
          playSound("Click1.wav");
-         
+        
+    }
+    
+    public void metronome(MouseEvent event){
+        this.sliderValue = 60000/(metronomeSlider.getValue());
+        metronomeOn=!metronomeOn;
+        
+        tl.getKeyFrames().add(new KeyFrame(Duration.millis(this.sliderValue), this));
+        tl.setCycleCount(Animation.INDEFINITE);
+        if(metronomeOn == true){ 
+            tl.play();
+        }else{
+            tl.stop();
+            tl.getKeyFrames().clear();
         }
         
     }
+    public void getSliderValue(MouseEvent event){
+        this.sliderValue = 60000/(metronomeSlider.getValue());
+  
+    }
+  
+    
     
     //method to start recording
     public void record(MouseEvent event){
@@ -290,11 +319,12 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     public void sleep(int t){
-       try {
-            Thread.sleep(t);
-        } catch (InterruptedException ex) {
-            
-        } 
+      try{
+      Thread.sleep(t);
+      }catch(InterruptedException e){
+          
+      }
+       
     }
   
     public void reverseSkin(ActionEvent event){
@@ -630,98 +660,98 @@ public class FXMLDocumentController implements Initializable {
     
     public void keyboardPlay(KeyEvent event){
         if(event.getCode()==KeyCode.A){
-            playSound("c1.wav", C1);
+            playSound(VirtualPiano.getOctave() + "c1.wav", C1);
         
         }
         if(event.getCode()==KeyCode.S){
-            playSound("d1.wav", D1);
+            playSound(VirtualPiano.getOctave() + "d1.wav", D1);
         
         }
         if(event.getCode()==KeyCode.D){
-            playSound("e1.wav", E1);
+            playSound(VirtualPiano.getOctave() + "e1.wav", E1);
         
         }
         if(event.getCode()==KeyCode.F){
-            playSound("f1.wav", F1);
+            playSound(VirtualPiano.getOctave() + "f1.wav", F1);
         
         }
         if(event.getCode()==KeyCode.G){
-            playSound("g1.wav", G1);
+            playSound(VirtualPiano.getOctave() + "g1.wav", G1);
         
         }
         if(event.getCode()==KeyCode.H){
-            playSound("a1.wav", A1);
+            playSound(VirtualPiano.getOctave() + "a1.wav", A1);
         
         }
         if(event.getCode()==KeyCode.J){
-            playSound("b1.wav", B1);
+            playSound(VirtualPiano.getOctave() + "b1.wav", B1);
         
         }
         if(event.getCode()==KeyCode.K){
-            playSound("c2.wav", C2);
+            playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         
         }
         if(event.getCode()==KeyCode.L){
-            playSound("d2.wav", D2);
+            playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         
         }
         if(event.getCode()==KeyCode.Z){
-            playSound("e2.wav", E2);
+            playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         
         }
         if(event.getCode()==KeyCode.X){
-            playSound("f2.wav", F2);
+            playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         
         }
         if(event.getCode()==KeyCode.C){
-            playSound("g2.wav", G2);
+            playSound(VirtualPiano.getOctave() + "g2.wav", G2);
         
         }
         if(event.getCode()==KeyCode.V){
-            playSound("a2.wav", A2);
+            playSound(VirtualPiano.getOctave() + "a2.wav", A2);
         
         }
         if(event.getCode()==KeyCode.B){
-            playSound("b2.wav", B2);
+            playSound(VirtualPiano.getOctave() + "b2.wav", B2);
         
         }
         if(event.getCode()==KeyCode.Q){
-            playSound("cs1.wav", Cs1);
+            playSound(VirtualPiano.getOctave() + "cs1.wav", Cs1);
         
         }
         if(event.getCode()==KeyCode.W){
-            playSound("ds1.wav", Ds1);
+            playSound(VirtualPiano.getOctave() + "ds1.wav", Ds1);
         
         }
         if(event.getCode()==KeyCode.E){
-            playSound("fs1.wav", Fs1);
+            playSound(VirtualPiano.getOctave() + "fs1.wav", Fs1);
         
         }
         if(event.getCode()==KeyCode.R){
-            playSound("gs1.wav", Gs1);
+            playSound(VirtualPiano.getOctave() + "gs1.wav", Gs1);
         
         }
         if(event.getCode()==KeyCode.T){
-            playSound("as1.wav", Bf1);
+            playSound(VirtualPiano.getOctave() + "as1.wav", Bf1);
         
         }
         if(event.getCode()==KeyCode.Y){
-            playSound("cs2.wav", Cs2);
+            playSound(VirtualPiano.getOctave() + "cs2.wav", Cs2);
         
         }
         if(event.getCode()==KeyCode.U){
-            playSound("ds2.wav", Ds2);
+            playSound(VirtualPiano.getOctave() + "ds2.wav", Ds2);
         }
         if(event.getCode()==KeyCode.I){
-            playSound("fs2.wav", Fs2);
+            playSound(VirtualPiano.getOctave() + "fs2.wav", Fs2);
         
         }
         if(event.getCode()==KeyCode.O){
-            playSound("gs2.wav", Gs2);
+            playSound(VirtualPiano.getOctave() + "gs2.wav", Gs2);
         
         }
         if(event.getCode()==KeyCode.P){
-            playSound("as2.wav", Bf2);
+            playSound(VirtualPiano.getOctave() + "as2.wav", Bf2);
         
         }
     }
@@ -853,7 +883,8 @@ public class FXMLDocumentController implements Initializable {
         sleep(200);
         playSound(VirtualPiano.getOctave() + "c2.wav", C2);
     }
-    }
+
+    
 
     
     
@@ -864,7 +895,7 @@ public class FXMLDocumentController implements Initializable {
     
    
    
-   
+}
    
    
    
