@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -68,6 +69,7 @@
                   <Label layoutX="572.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
                   <Button fx:id="otj" layoutX="42.0" layoutY="31.0" mnemonicParsing="false" onMouseReleased="#playOdeToJoy" text="Ode To Joy" />
                   <ToggleButton fx:id="metronome" layoutX="409.0" layoutY="14.0" mnemonicParsing="false" onMouseReleased="#metronome" text="Metronome" />
+                  <Slider fx:id="metronomeSlider" layoutX="387.0" layoutY="57.0" majorTickUnit="20.0" max="120.0" min="40.0" onMouseReleased="#getSliderValue" prefHeight="38.0" prefWidth="135.0" showTickLabels="true" showTickMarks="true" value="120.0" />
                </children>
             </AnchorPane>
          </left>
