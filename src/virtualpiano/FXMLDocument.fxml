@@ -70,6 +70,7 @@
                   <Button fx:id="otj" layoutX="42.0" layoutY="31.0" mnemonicParsing="false" onMouseReleased="#playOdeToJoy" text="Ode To Joy" />
                   <ToggleButton fx:id="metronome" layoutX="409.0" layoutY="14.0" mnemonicParsing="false" onMousePressed="#metronome" text="Metronome" />
                   <Button fx:id="getFrustrated" layoutX="276.0" layoutY="79.0" mnemonicParsing="false" text="Get Frustrated!" />
+                  <Slider fx:id="metronomeSlider" layoutX="383.0" layoutY="49.0" max="120.0" min="40.0" onMouseReleased="#getSliderValue" showTickLabels="true" showTickMarks="true" value="120.0" />
                </children>
             </AnchorPane>
          </left>
