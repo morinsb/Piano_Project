@@ -8,6 +8,7 @@ package virtualpiano;
 import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import javafx.util.Duration;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -19,6 +20,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -31,6 +35,8 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -39,6 +45,8 @@ import javafx.scene.shape.Rectangle;
 public class FXMLDocumentController implements Initializable {
     
     //getFrustrated!
+    @FXML
+    private Button getFrustrated;
     //record button
     @FXML
     private ToggleButton rec;
@@ -132,6 +140,9 @@ public class FXMLDocumentController implements Initializable {
    private Menu file;
    @FXML
    private Menu help;
+
+   
+ 
    
    
    @FXML
@@ -139,6 +150,9 @@ public class FXMLDocumentController implements Initializable {
    
    @FXML
    private MenuItem about;
+   
+   @FXML
+   private MenuItem tutorial;
    
    
    @FXML
@@ -571,6 +585,52 @@ public class FXMLDocumentController implements Initializable {
            alert.setContentText("This program was made by Emma, Delnaz, Sam, and Mia. You can play our virtual piano, record your music, and choose from one of our many styles!");
            alert.showAndWait();
     }
+    
+    
+    
+   
+   //Tutorial
+   public void showTutorial(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: How to use the Virtual Piano");
+        alert.setContentText("This tutorial will cover the basics of VirtualPiano. Would you like to begin the VirtualPiano tutorial?");
+        ButtonType beginTutorial = new ButtonType("Yes!  Let's begin");
+        ButtonType doNotBeginTutorial = new ButtonType("Nah, I got this", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(beginTutorial, doNotBeginTutorial);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == beginTutorial){
+                this.tutorialPart1();
+            } else if (result.get() == doNotBeginTutorial) {
+                // ... user chose "Two"
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+    }
+   
+   private void tutorialPart1() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step One");
+        alert.setContentText("Playing the white keys: you can either use the keyboard to play (keys A-B) or click the keys on the screen inidividually.");
+        ButtonType backTutorial1 = new ButtonType("Back");
+        ButtonType nextTutorial1 = new ButtonType("Next");
+        ButtonType stopTutorial1 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(stopTutorial1, nextTutorial1);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial1){
+                //....
+            } else if (result.get() == nextTutorial1) {
+                // ... user chose "Two"
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+    }
+    
+    
+    
     public void keyboardPlay(KeyEvent event){
         if(event.getCode()==KeyCode.A){
             playSound("c1.wav", C1);
@@ -668,6 +728,8 @@ public class FXMLDocumentController implements Initializable {
         
         }
     }
+
+    
 }
     
     
