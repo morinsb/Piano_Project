@@ -68,7 +68,7 @@ public class VirtualPiano extends Application {
     }
     
     public static String getOctave(){
-        return currentOctave;
+        return currentOctave + "/";
     }
     
     
