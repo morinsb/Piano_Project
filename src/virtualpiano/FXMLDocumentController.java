@@ -368,8 +368,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
        URL sound = getClass().getResource("pianoNotes/" + filename);
        AudioClip play = new AudioClip(sound.toString());
        play.play();
-       showKeyPlayed(rectangle);
-       
+       showKeyPlayed(rectangle);   
     }
     //method to play a sound that is not a piano note
      public void playSound(String filename){
