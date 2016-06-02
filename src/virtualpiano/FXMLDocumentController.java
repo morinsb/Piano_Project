@@ -5,25 +5,31 @@
  */
 package virtualpiano;
 
-import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import javafx.util.Duration;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.animation.Animation;
 import javafx.animation.FillTransition;
-import javafx.animation.PauseTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -31,14 +37,18 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
  * @author Sam Morin, Delnaz Patel, Emma Rafkin, Mia Waggoner
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController implements Initializable, EventHandler<ActionEvent> {
     
     //getFrustrated!
+    @FXML
+    private Button getFrustrated;
     //record button
     @FXML
     private ToggleButton rec;
@@ -132,6 +142,9 @@ public class FXMLDocumentController implements Initializable {
    private Menu file;
    @FXML
    private Menu help;
+
+   
+ 
    
    
    @FXML
@@ -139,6 +152,9 @@ public class FXMLDocumentController implements Initializable {
    
    @FXML
    private MenuItem about;
+   
+   @FXML
+   private MenuItem tutorial;
    
    
    @FXML
@@ -236,23 +252,51 @@ public class FXMLDocumentController implements Initializable {
    private Rectangle B3fg;
    @FXML
    private Button otj;
+   @FXML
+   private Slider metronomeSlider;
+   
    
    private long startTime;
    private long elapsedTime;
    private ArrayList<RecordedNote> rec1 = new ArrayList<RecordedNote>();
    private boolean isRecording = false;
+   private boolean metronomeOn = false;
+   Timeline tl = new Timeline();
+   private double sliderValue;
+   
+   
+   
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
+    @Override
+    public void handle(ActionEvent event) {
+         playSound("Click1.wav");
+        
+    }
+    
     public void metronome(MouseEvent event){
-        while(true){
-            playSound("Click1.wav");
-         
+        this.sliderValue = 60000/(metronomeSlider.getValue());
+        metronomeOn=!metronomeOn;
+        
+        tl.getKeyFrames().add(new KeyFrame(Duration.millis(this.sliderValue), this));
+        tl.setCycleCount(Animation.INDEFINITE);
+        if(metronomeOn == true){ 
+            tl.play();
+        }else{
+            tl.stop();
+            tl.getKeyFrames().clear();
         }
         
     }
+    public void getSliderValue(MouseEvent event){
+        this.sliderValue = 60000/(metronomeSlider.getValue());
+  
+    }
+  
+    
     
     //method to start recording
     public void record(MouseEvent event){
@@ -284,11 +328,12 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     public void sleep(int t){
-       try {
-            Thread.sleep(t);
-        } catch (InterruptedException ex) {
-            
-        } 
+      try{
+      Thread.sleep(t);
+      }catch(InterruptedException e){
+          
+      }
+       
     }
   
     public void reverseSkin(ActionEvent event){
@@ -484,6 +529,163 @@ public class FXMLDocumentController implements Initializable {
            alert.setContentText("This program was made by Emma, Delnaz, Sam, and Mia. You can play our virtual piano, record your music, and choose from one of our many styles!");
            alert.showAndWait();
     }
+    
+    
+    
+   
+   //Tutorial
+   public void showTutorial(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: How to use the Virtual Piano");
+        alert.setContentText("This tutorial will cover the basics of VirtualPiano. Would you like to begin the VirtualPiano tutorial?");
+        ButtonType beginTutorial = new ButtonType("Yes!  Let's begin");
+        ButtonType doNotBeginTutorial = new ButtonType("Nah, I got this", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(beginTutorial, doNotBeginTutorial);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == beginTutorial){
+                this.tutorialPart1();
+            } else if (result.get() == doNotBeginTutorial) {
+                // ... user chose "Two"
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+    }
+   
+   private void tutorialPart1() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step One");
+        alert.setContentText("Playing the white keys: you can either use the keyboard to play (keys A-B) or click the keys on the screen inidividually.");
+        ButtonType nextTutorial1 = new ButtonType("Next");
+        ButtonType stopTutorial1 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(stopTutorial1, nextTutorial1);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == nextTutorial1) {
+                this.tutorialPart2();
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+    }
+   
+   private void tutorialPart2() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Two");
+        alert.setContentText("Playing the black keys: you can either use the keyboard to play (keys Q-P) or click the keys on the screen inidividually.");
+        ButtonType backTutorial2 = new ButtonType("Back");
+        ButtonType nextTutorial2 = new ButtonType("Next");
+        ButtonType stopTutorial2 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial2, stopTutorial2, nextTutorial2);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial2){
+                this.tutorialPart1();
+            } else if (result.get() == nextTutorial2) {
+                this.tutorialPart3();
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+    }
+   
+    private void tutorialPart3() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Three");
+        alert.setContentText("You can switch between octaves by clicking File > Octaves in the toolbar.  You can then choose which octave range you would like to play.");
+        ButtonType backTutorial3 = new ButtonType("Back");
+        ButtonType nextTutorial3 = new ButtonType("Next");
+        ButtonType stopTutorial3 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial3, stopTutorial3, nextTutorial3);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial3){
+                this.tutorialPart2();
+            } else if (result.get() == nextTutorial3) {
+                this.tutorialPart4();
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+    }
+    
+    private void tutorialPart4() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Four");
+        alert.setContentText("Custom Keys: To change the color of the keys, click File > Skins.  You can select your desired custom designed skin!");
+        ButtonType backTutorial4 = new ButtonType("Back");
+        ButtonType nextTutorial4 = new ButtonType("Next");
+        ButtonType stopTutorial4 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial4, stopTutorial4, nextTutorial4);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial4){
+                this.tutorialPart3();
+            } else if (result.get() == nextTutorial4) {
+                this.tutorialPart5();
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+    }
+    
+    private void tutorialPart5() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Five");
+        alert.setContentText("Recording your own tunes: To record and play back your music, press the record button in the upper right hand corner of the screen and proceed to record your song by clicking the 'Record' button.  You may change the octaves as you record, to get a wider variety of sounds.  When you are finished recording, press the 'Record' button.  You can then press Play, right below the 'Record' button to hear what you have recorded.");
+        ButtonType backTutorial5 = new ButtonType("Back");
+        ButtonType nextTutorial5 = new ButtonType("Next");
+        ButtonType stopTutorial5 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial5, stopTutorial5, nextTutorial5);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial5){
+                this.tutorialPart3();
+            } else if (result.get() == nextTutorial5) {
+                // ... user chose "Two"
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+    }
+    
+    private void tutorialPart6() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Five");
+        alert.setContentText("Recording your own tunes: To record and play back your music, press the record button in the upper right hand corner of the screen and proceed to record your song by clicking the 'Record' button.  You may change the octaves as you record, to get a wider variety of sounds.  When you are finished recording, press the 'Record' button.  You can then press Play, right below the 'Record' button to hear what you have recorded.");
+        ButtonType backTutorial5 = new ButtonType("Back");
+        ButtonType nextTutorial5 = new ButtonType("Next");
+        ButtonType stopTutorial5 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial5, stopTutorial5, nextTutorial5);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial5){
+                this.tutorialPart4();
+            } else if (result.get() == nextTutorial5) {
+                // ... user chose "Two"
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+    }
+    
+    
+    
     public void keyboardPlay(KeyEvent event){
         if(event.getCode()==KeyCode.A){
             playSound(VirtualPiano.getOctave() + "c1.wav", C1);
@@ -709,7 +911,8 @@ public class FXMLDocumentController implements Initializable {
         sleep(200);
         playSound(VirtualPiano.getOctave() + "c2.wav", C2);
     }
-    }
+
+    
 
     
     
@@ -720,7 +923,7 @@ public class FXMLDocumentController implements Initializable {
     
    
    
-   
+}
    
    
    
