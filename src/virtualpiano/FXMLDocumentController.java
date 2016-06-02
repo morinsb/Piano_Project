@@ -144,6 +144,8 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private Menu octaves;
    
+   
+   
    @FXML
    private MenuItem zero_one;
    @FXML
@@ -174,7 +176,14 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private MenuItem rainbowSkin;
 
- 
+   @FXML
+   private Menu pianos;
+   
+   @FXML
+   private MenuItem steinway;
+   @FXML
+   private MenuItem kawai;
+   
    //DO NOT DELETE THIS
    //system.currentTimeMillis
    @FXML
@@ -239,7 +248,7 @@ public class FXMLDocumentController implements Initializable {
     } 
     public void metronome(MouseEvent event){
         while(true){
-         playSound("Click1.wav");
+            playSound("Click1.wav");
          
         }
         
@@ -320,11 +329,18 @@ public class FXMLDocumentController implements Initializable {
             rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, filename, rectangle));
             
         }
-       URL sound = getClass().getResource("pianoNotes/" + filename);
-       AudioClip play = new AudioClip(sound.toString());
-       play.play();
-       showKeyPlayed(rectangle);
-       
+        if((VirtualPiano.getPiano().equals("kawai/")) && (VirtualPiano.getOctave().equals("zero_one/") || VirtualPiano.getOctave().equals("five_six/"))){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Octaves");
+            alert.setHeaderText(null);
+            alert.setContentText("Sorry, this function is not available. Only octaves 1-5 are available for the Kawai piano.");
+            alert.showAndWait();
+        } else {
+            URL sound = getClass().getResource("pianoNotes/" + VirtualPiano.getPiano() + filename);
+            AudioClip play = new AudioClip(sound.toString());
+            play.play();
+            showKeyPlayed(rectangle);
+        }
     }
     //method to play a sound that is not a piano note
      public void playSound(String filename){
@@ -443,6 +459,18 @@ public class FXMLDocumentController implements Initializable {
     public void changeOctave(String newOctave){
         VirtualPiano.currentOctave = newOctave;
     }
+    
+    // set piano
+    public void steinway(ActionEvent event){
+        changePiano("steinway");
+    }
+    public void kawai(ActionEvent event){
+        changePiano("kawai");
+    }
+    public void changePiano(String newPiano){
+        VirtualPiano.currentPiano = newPiano;
+    }
+    
     
     
     public void quit(ActionEvent event){

@@ -96,6 +96,12 @@
                         <MenuItem fx:id="five_six" mnemonicParsing="false" onAction="#five_six" text="Fifth and Sixth" />
                     </items>
                   </Menu>
+                  <Menu fx:id="pianos" mnemonicParsing="false" text="Pianos">
+                    <items>
+                      <MenuItem fx:id="steinway" mnemonicParsing="false" onAction="#steinway" text="Steinway" />
+                        <MenuItem fx:id="kawai" mnemonicParsing="false" onAction="#kawai" text="Kawai" />
+                    </items>
+                  </Menu>
               <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
             </items>
           </Menu>
