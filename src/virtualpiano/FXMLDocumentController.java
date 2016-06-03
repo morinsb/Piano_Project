@@ -46,6 +46,34 @@ import javafx.stage.StageStyle;
  */
 public class FXMLDocumentController implements Initializable, EventHandler<ActionEvent> {
     
+    //Styling
+    @FXML
+    private Rectangle titleBackground;
+    //white rectangles
+    @FXML
+    private Rectangle white1;
+    @FXML
+    private Rectangle white2;
+    @FXML
+    private Rectangle white3;
+    @FXML
+    private Rectangle white4;
+    @FXML
+    private Rectangle white5;
+    @FXML
+    private Rectangle white6;
+    //black rectanlges
+    @FXML
+    private Rectangle black1;
+    @FXML
+    private Rectangle black2;
+    @FXML
+    private Rectangle black3;
+    @FXML
+    private Rectangle black4;
+            
+    
+    
     //getFrustrated!
     @FXML
     private Button getFrustrated;
