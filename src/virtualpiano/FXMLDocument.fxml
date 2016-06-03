@@ -101,11 +101,11 @@
                      </font>
                   </Text>
                   <Rectangle id="C2" fx:id="white1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="94.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                  <Rectangle id="C2" fx:id="white2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="108.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                  <Rectangle id="C2" fx:id="white3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="122.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="A2" fx:id="white2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="108.0" layoutY="13.0" onMousePressed="#playD1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="E3" fx:id="white3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="122.0" layoutY="13.0" onMousePressed="#playE1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
                   <Rectangle id="C2" fx:id="white4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="490.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                  <Rectangle id="C2" fx:id="white5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="504.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                  <Rectangle id="C2" fx:id="white6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="519.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="A2" fx:id="white5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="504.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="E3" fx:id="white6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="519.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
                   <Rectangle id="C2s" fx:id="black1" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="103.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
                   <Rectangle id="C2s" fx:id="black2" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="119.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
                   <Rectangle id="C2s" fx:id="black4" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="515.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
