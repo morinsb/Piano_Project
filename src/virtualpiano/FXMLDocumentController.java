@@ -5,23 +5,31 @@
  */
 package virtualpiano;
 
-import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import javafx.util.Duration;
 import java.util.ResourceBundle;
+import javafx.animation.Animation;
 import javafx.animation.FillTransition;
-import javafx.animation.PauseTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -39,17 +47,52 @@ import java.io.ObjectOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
  * @author Sam Morin, Delnaz Patel, Emma Rafkin, Mia Waggoner
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController implements Initializable, EventHandler<ActionEvent> {
     
-    //
+    //Styling
+    @FXML
+    private Rectangle titleBackground;
+    //white rectangles
+    @FXML
+    private Rectangle white1;
+    @FXML
+    private Rectangle white2;
+    @FXML
+    private Rectangle white3;
+    @FXML
+    private Rectangle white4;
+    @FXML
+    private Rectangle white5;
+    @FXML
+    private Rectangle white6;
+    //black rectanlges
+    @FXML
+    private Rectangle black1;
+    @FXML
+    private Rectangle black2;
+    @FXML
+    private Rectangle black3;
+    @FXML
+    private Rectangle black4;
+            
+    
+    
+    //getFrustrated!
+    @FXML
+    private Button getFrustrated;
     //record button
     @FXML
     private ToggleButton rec;
+    
+    @FXML
+    private ToggleButton metronome;
     //play buttons
     @FXML
     private Button play;
@@ -137,6 +180,9 @@ public class FXMLDocumentController implements Initializable {
    private Menu file;
    @FXML
    private Menu help;
+
+   
+ 
    
    
    @FXML
@@ -147,9 +193,14 @@ public class FXMLDocumentController implements Initializable {
    
    @FXML
    private MenuItem upload;
+   @FXML
+   private MenuItem tutorial;
+   
    
    @FXML
    private Menu octaves;
+   
+   
    
    @FXML
    private MenuItem zero_one;
@@ -183,6 +234,15 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private MenuItem save;
  
+
+   @FXML
+   private Menu pianos;
+   
+   @FXML
+   private MenuItem steinway;
+   @FXML
+   private MenuItem kawai;
+   
    //DO NOT DELETE THIS
    //system.currentTimeMillis
    @FXML
@@ -236,17 +296,56 @@ public class FXMLDocumentController implements Initializable {
    @FXML
    private Label recName;
 
+   private Slider metronomeSlider;
+   //hear the masters buttons
+   @FXML
+   private Button otj;
+   @FXML
+   private Button cancan;
+
+   
+   
    private long startTime;
    private long elapsedTime;
    private ArrayList<RecordedNote> rec1 = new ArrayList<RecordedNote>();
    private boolean isRecording = false;
+   private boolean metronomeOn = false;
+   Timeline tl = new Timeline();
+   private double sliderValue;
+   
    
    
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }  
+    } 
+    @Override
+    public void handle(ActionEvent event) {
+         playSound("Click1.wav");
+        
+    }
+    
+    public void metronome(MouseEvent event){
+        this.sliderValue = 60000/(metronomeSlider.getValue());
+        metronomeOn=!metronomeOn;
+        
+        tl.getKeyFrames().add(new KeyFrame(Duration.millis(this.sliderValue), this));
+        tl.setCycleCount(Animation.INDEFINITE);
+        if(metronomeOn == true){ 
+            tl.play();
+        }else{
+            tl.stop();
+            tl.getKeyFrames().clear();
+        }
+        
+    }
+    public void getSliderValue(MouseEvent event){
+        this.sliderValue = 60000/(metronomeSlider.getValue());
+  
+    }
+  
+    
     
     //method to start recording
     @FXML
@@ -279,6 +378,14 @@ public class FXMLDocumentController implements Initializable {
                 }
             }
         }
+    }
+    public void sleep(int t){
+      try{
+      Thread.sleep(t);
+      }catch(InterruptedException e){
+          
+      }
+       
     }
   
 //sets the recording
@@ -361,95 +468,110 @@ public class FXMLDocumentController implements Initializable {
             rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, filename));
             
         }
-       URL sound = getClass().getResource("pianoNotes/" + VirtualPiano.getOctave() + "/" + filename);
-       AudioClip play = new AudioClip(sound.toString());
-       play.play();
-       showKeyPlayed(rectangle);
-       
+        if((VirtualPiano.getPiano().equals("kawai/")) && (VirtualPiano.getOctave().equals("zero_one/") || VirtualPiano.getOctave().equals("five_six/"))){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Octaves");
+            alert.setHeaderText(null);
+            alert.setContentText("Sorry, this function is not available. Only octaves 1-5 are available for the Kawai piano.");
+            alert.showAndWait();
+        } else {
+            URL sound = getClass().getResource("pianoNotes/" + VirtualPiano.getPiano() + filename);
+            AudioClip play = new AudioClip(sound.toString());
+            play.play();
+            showKeyPlayed(rectangle);
+        }
     }
+    //method to play a sound that is not a piano note
+     public void playSound(String filename){
+       URL sound = getClass().getResource("pianoNotes/" + filename);
+       AudioClip play1 = new AudioClip(sound.toString());
+       play1.play(); 
+    }
+    //method to play a sound that is not a piano note
+     
     //play notes
     public void playC1(MouseEvent event){
-        playSound("c1.wav", C1);    
+        playSound(VirtualPiano.getOctave() + "c1.wav", C1);    
     }
     public void playCs1(MouseEvent event){
-        playSound("cs1.wav", Cs1); 
+        playSound(VirtualPiano.getOctave() + "cs1.wav", Cs1); 
     }
     public void playD1(MouseEvent event){
-        playSound("d1.wav", D1); 
+        playSound(VirtualPiano.getOctave() + "d1.wav", D1); 
     }
     public void playDs1(MouseEvent event){
-        playSound("ds1.wav", Ds1); 
+        playSound(VirtualPiano.getOctave() + "ds1.wav", Ds1); 
     }
     public void playE1(MouseEvent event){
-        playSound("e1.wav", E1); 
+        playSound(VirtualPiano.getOctave() + "e1.wav", E1); 
     }
     public void playF1(MouseEvent event){
-        playSound("f1.wav",F1); 
+        playSound(VirtualPiano.getOctave() + "f1.wav",F1); 
     }
     public void playFs1(MouseEvent event){
-        playSound("fs1.wav", Fs1); 
+        playSound(VirtualPiano.getOctave() + "fs1.wav", Fs1); 
     }
     public void playG1(MouseEvent event){
-        playSound("g1.wav", G1); 
+        playSound(VirtualPiano.getOctave() + "g1.wav", G1); 
     }
     public void playGs1(MouseEvent event){
-        playSound("gs1.wav", Gs1); 
+        playSound(VirtualPiano.getOctave() + "gs1.wav", Gs1); 
     }
     public void playA1(MouseEvent event){
-        playSound("a1.wav", A1); 
+        playSound(VirtualPiano.getOctave() + "a1.wav", A1); 
     }
     public void playBf1(MouseEvent event){
-        playSound("as1.wav", Bf1); 
+        playSound(VirtualPiano.getOctave() + "as1.wav", Bf1); 
     }
     public void playB1(MouseEvent event){
-        playSound("b1.wav", B1); 
+        playSound(VirtualPiano.getOctave() + "b1.wav", B1); 
     }
     public void playC2(MouseEvent event){
-        playSound("c2.wav", C2); 
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2); 
     }
     
     public void playCs2(MouseEvent event){
-        playSound("cs2.wav", Cs2); 
+        playSound(VirtualPiano.getOctave() + "cs2.wav", Cs2); 
     }
     
     public void playD2(MouseEvent event){
-        playSound("d2.wav", D2); 
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2); 
     }
     
     public void playDs2(MouseEvent event){
-        playSound("ds2.wav", Ds2); 
+        playSound(VirtualPiano.getOctave() + "ds2.wav", Ds2); 
     }
     
     public void playE2(MouseEvent event){
-        playSound("e2.wav", E2); 
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2); 
     }
     
     public void playF2(MouseEvent event){
-        playSound("f2.wav", F2); 
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2); 
     }
     
     public void playFs2(MouseEvent event){
-        playSound("fs2.wav", Fs2); 
+        playSound(VirtualPiano.getOctave() + "fs2.wav", Fs2); 
     }
     
     public void playG2(MouseEvent event){
-        playSound("g2.wav", G2); 
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2); 
     }
     
     public void playGs2(MouseEvent event){
-        playSound("gs2.wav", Gs2); 
+        playSound(VirtualPiano.getOctave() + "gs2.wav", Gs2); 
     }
     
     public void playA2(MouseEvent event){
-        playSound("a2.wav", A2); 
+        playSound(VirtualPiano.getOctave() + "a2.wav", A2); 
     }
     
     public void playBf2(MouseEvent event){
-        playSound("as2.wav", Bf2); 
+        playSound(VirtualPiano.getOctave() + "as2.wav", Bf2); 
     }
     
     public void playB2(MouseEvent event){
-        playSound("b2.wav", B2); 
+        playSound(VirtualPiano.getOctave() + "b2.wav", B2); 
     }
     
     
@@ -477,6 +599,18 @@ public class FXMLDocumentController implements Initializable {
         VirtualPiano.currentOctave = newOctave;
     }
     
+    // set piano
+    public void steinway(ActionEvent event){
+        changePiano("steinway");
+    }
+    public void kawai(ActionEvent event){
+        changePiano("kawai");
+    }
+    public void changePiano(String newPiano){
+        VirtualPiano.currentPiano = newPiano;
+    }
+    
+    
     
     public void quit(ActionEvent event){
         System.exit(0);
@@ -489,104 +623,480 @@ public class FXMLDocumentController implements Initializable {
            alert.setContentText("This program was made by Emma, Delnaz, Sam, and Mia. You can play our virtual piano, record your music, and choose from one of our many styles!");
            alert.showAndWait();
     }
+    
+    
+    
+   
+   //Tutorial
+   public void showTutorial(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: How to use the Virtual Piano");
+        alert.setContentText("This tutorial will cover the basics of VirtualPiano. Would you like to begin the VirtualPiano tutorial?");
+        ButtonType beginTutorial = new ButtonType("Yes!  Let's begin");
+        ButtonType doNotBeginTutorial = new ButtonType("Nah, I got this", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(beginTutorial, doNotBeginTutorial);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == beginTutorial){
+                this.tutorialPart1();
+            } else if (result.get() == doNotBeginTutorial) {
+                // ... user chose "Two"
+            }
+    }
+   
+   private void tutorialPart1() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step One");
+        alert.setContentText("Playing the white keys: you can either use the keyboard to play (keys A-B) or click the keys on the screen inidividually.");
+        ButtonType nextTutorial1 = new ButtonType("Next");
+        ButtonType stopTutorial1 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(stopTutorial1, nextTutorial1);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == nextTutorial1) {
+                this.tutorialPart2();
+            }
+    }
+   
+   private void tutorialPart2() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Two");
+        alert.setContentText("Playing the black keys: you can either use the keyboard to play (keys Q-P) or click the keys on the screen inidividually.");
+        ButtonType backTutorial2 = new ButtonType("Back");
+        ButtonType nextTutorial2 = new ButtonType("Next");
+        ButtonType stopTutorial2 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial2, stopTutorial2, nextTutorial2);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial2){
+                this.tutorialPart1();
+            } else if (result.get() == nextTutorial2) {
+                this.tutorialPart3();
+            }
+    }
+   
+    private void tutorialPart3() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Three");
+        alert.setContentText("You can switch between octaves by clicking File > Octaves in the toolbar.  You can then choose which octave range you would like to play.");
+        ButtonType backTutorial3 = new ButtonType("Back");
+        ButtonType nextTutorial3 = new ButtonType("Next");
+        ButtonType stopTutorial3 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial3, stopTutorial3, nextTutorial3);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial3){
+                this.tutorialPart2();
+            } else if (result.get() == nextTutorial3) {
+                this.tutorialPart4();
+            }
+    }
+    
+    private void tutorialPart4() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Four");
+        alert.setContentText("Custom Keys: To change the color of the keys, click File > Skins.  You can select your desired custom designed skin!");
+        ButtonType backTutorial4 = new ButtonType("Back");
+        ButtonType nextTutorial4 = new ButtonType("Next");
+        ButtonType stopTutorial4 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial4, stopTutorial4, nextTutorial4);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial4){
+                this.tutorialPart3();
+            } else if (result.get() == nextTutorial4) {
+                this.tutorialPart5();
+            }
+    }
+    
+    private void tutorialPart5() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Five");
+        alert.setContentText("Recording your own tunes: To record and play back your music, press the record button in the upper right hand corner of the screen and proceed to record your song by clicking the 'Record' button.  You may change the octaves as you record, to get a wider variety of sounds.  When you are finished recording, press the 'Record' button.  You can then press Play, right below the 'Record' button to hear what you have recorded.");
+        ButtonType backTutorial5 = new ButtonType("Back");
+        ButtonType nextTutorial5 = new ButtonType("Next");
+        ButtonType stopTutorial5 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial5, stopTutorial5, nextTutorial5);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial5){
+                this.tutorialPart4();
+            } else if (result.get() == nextTutorial5) {
+                this.tutorialPart6();
+            }
+    }
+    
+    private void tutorialPart6() {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Six");
+        alert.setContentText("Recording your own tunes: To record and play back your music, press the record button in the upper right hand corner of the screen and proceed to record your song by clicking the 'Record' button.  You may change the octaves as you record, to get a wider variety of sounds.  When you are finished recording, press the 'Record' button.  You can then press Play, right below the 'Record' button to hear what you have recorded.");
+        ButtonType backTutorial6 = new ButtonType("Back");
+        ButtonType nextTutorial6 = new ButtonType("Next");
+        ButtonType stopTutorial6 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial6, stopTutorial6, nextTutorial6);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial6){
+                this.tutorialPart5();
+            } else if (result.get() == nextTutorial6) {
+                this.tutorialPart7();
+            }
+    }
+    
+        private void tutorialPart7() {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Seven");
+        alert.setContentText("Hear the Masters: You can also hear some wonderful piano tunes by 'The Masters,' by clicking on the song you would like to hear. (Note: Unfortunately, you cannot play the piano or click on the screen until the song is done.)");
+        ButtonType backTutorial7 = new ButtonType("Back");
+        ButtonType nextTutorial7 = new ButtonType("Next");
+        ButtonType stopTutorial7 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial7, stopTutorial7, nextTutorial7);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial7){
+                this.tutorialPart6();
+            } else if (result.get() == nextTutorial7) {
+                this.tutorialPart8();
+            }
+    }
+        
+        private void tutorialPart8() {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: COMPLETE");
+        alert.setContentText("YOU ARE NOW A VIRTUAL PIANO SUPERSTAR/MASTER!!!  If you have any questions, feel free to contact Sam Morin: smorin@ucls.uchicago.edu");
+        ButtonType backTutorial8 = new ButtonType("Back");
+        ButtonType stopTutorial8 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial8, stopTutorial8);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial8){
+                this.tutorialPart7();
+            }
+    }
+    
+    
+    
     public void keyboardPlay(KeyEvent event){
         if(event.getCode()==KeyCode.A){
-            playSound("c1.wav", C1);
+            playSound(VirtualPiano.getOctave() + "c1.wav", C1);
         
         }
         if(event.getCode()==KeyCode.S){
-            playSound("d1.wav", D1);
+            playSound(VirtualPiano.getOctave() + "d1.wav", D1);
         
         }
         if(event.getCode()==KeyCode.D){
-            playSound("e1.wav", E1);
+            playSound(VirtualPiano.getOctave() + "e1.wav", E1);
         
         }
         if(event.getCode()==KeyCode.F){
-            playSound("f1.wav", F1);
+            playSound(VirtualPiano.getOctave() + "f1.wav", F1);
         
         }
         if(event.getCode()==KeyCode.G){
-            playSound("g1.wav", G1);
+            playSound(VirtualPiano.getOctave() + "g1.wav", G1);
         
         }
         if(event.getCode()==KeyCode.H){
-            playSound("a1.wav", A1);
+            playSound(VirtualPiano.getOctave() + "a1.wav", A1);
         
         }
         if(event.getCode()==KeyCode.J){
-            playSound("b1.wav", B1);
+            playSound(VirtualPiano.getOctave() + "b1.wav", B1);
         
         }
         if(event.getCode()==KeyCode.K){
-            playSound("c2.wav", C2);
+            playSound(VirtualPiano.getOctave() + "c2.wav", C2);
         
         }
         if(event.getCode()==KeyCode.L){
-            playSound("d2.wav", D2);
+            playSound(VirtualPiano.getOctave() + "d2.wav", D2);
         
         }
         if(event.getCode()==KeyCode.Z){
-            playSound("e2.wav", E2);
+            playSound(VirtualPiano.getOctave() + "e2.wav", E2);
         
         }
         if(event.getCode()==KeyCode.X){
-            playSound("f2.wav", F2);
+            playSound(VirtualPiano.getOctave() + "f2.wav", F2);
         
         }
         if(event.getCode()==KeyCode.C){
-            playSound("g2.wav", G2);
+            playSound(VirtualPiano.getOctave() + "g2.wav", G2);
         
         }
         if(event.getCode()==KeyCode.V){
-            playSound("a2.wav", A2);
+            playSound(VirtualPiano.getOctave() + "a2.wav", A2);
         
         }
         if(event.getCode()==KeyCode.B){
-            playSound("b2.wav", B2);
+            playSound(VirtualPiano.getOctave() + "b2.wav", B2);
         
         }
         if(event.getCode()==KeyCode.Q){
-            playSound("cs1.wav", Cs1);
+            playSound(VirtualPiano.getOctave() + "cs1.wav", Cs1);
         
         }
         if(event.getCode()==KeyCode.W){
-            playSound("ds1.wav", Ds1);
+            playSound(VirtualPiano.getOctave() + "ds1.wav", Ds1);
         
         }
         if(event.getCode()==KeyCode.E){
-            playSound("fs1.wav", Fs1);
+            playSound(VirtualPiano.getOctave() + "fs1.wav", Fs1);
         
         }
         if(event.getCode()==KeyCode.R){
-            playSound("gs1.wav", Gs1);
+            playSound(VirtualPiano.getOctave() + "gs1.wav", Gs1);
         
         }
         if(event.getCode()==KeyCode.T){
-            playSound("as1.wav", Bf1);
+            playSound(VirtualPiano.getOctave() + "as1.wav", Bf1);
         
         }
         if(event.getCode()==KeyCode.Y){
-            playSound("cs2.wav", Cs2);
+            playSound(VirtualPiano.getOctave() + "cs2.wav", Cs2);
         
         }
         if(event.getCode()==KeyCode.U){
-            playSound("ds2.wav", Ds2);
+            playSound(VirtualPiano.getOctave() + "ds2.wav", Ds2);
         }
         if(event.getCode()==KeyCode.I){
-            playSound("fs2.wav", Fs2);
+            playSound(VirtualPiano.getOctave() + "fs2.wav", Fs2);
         
         }
         if(event.getCode()==KeyCode.O){
-            playSound("gs2.wav", Gs2);
+            playSound(VirtualPiano.getOctave() + "gs2.wav", Gs2);
         
         }
         if(event.getCode()==KeyCode.P){
-            playSound("as2.wav", Bf2);
+            playSound(VirtualPiano.getOctave() + "as2.wav", Bf2);
         
         }
     }
-}
+          
+  
+    public void playOdeToJoy(MouseEvent event){
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(700);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(200);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(800);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(700);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(200);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(800);
+        //verse 2
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(200);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
+        sleep(200);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(700);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(200);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
+        sleep(200);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "g1.wav", G1);
+        sleep(800);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "g2.wav", G2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "f2.wav", F2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+        sleep(500);
+        playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+        sleep(700);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+        sleep(200);
+        playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+    }
+    
+    public void playCanCan(MouseEvent event){
+       playSound(VirtualPiano.getOctave() + "g1.wav", G1);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "g1.wav", G1);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "g1.wav", G1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "g2.wav", G2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "fs2.wav", Fs2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "g1.wav", G1);
+       sleep(1000);
+    }
+    
+    
+    
+    }
+    
+    
+
+    
+
     
     
     
@@ -594,7 +1104,6 @@ public class FXMLDocumentController implements Initializable {
      
      
     
-   
    
    
    
