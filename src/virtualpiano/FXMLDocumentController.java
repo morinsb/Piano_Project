@@ -287,6 +287,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
    @FXML
    private Button cancan;
 
+ 
    
    
    private long startTime;
@@ -302,7 +303,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     } 
     @Override
     public void handle(ActionEvent event) {
@@ -327,6 +328,15 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
     public void getSliderValue(MouseEvent event){
         this.sliderValue = 60000/(metronomeSlider.getValue());
   
+    }
+    public void getFrustrated(MouseEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("You're Frustrated?");
+        alert.setHeaderText("Everyone gets frustrated!");
+        alert.setContentText("Only losers give up! Keep practicing! You can take a break once you become a piano master! :)");
+        alert.showAndWait();
     }
   
     
@@ -426,7 +436,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
        AudioClip play1 = new AudioClip(sound.toString());
        play1.play(); 
     }
-    //method to play a sound that is not a piano note
+   
      
     //play notes
     public void playC1(MouseEvent event){

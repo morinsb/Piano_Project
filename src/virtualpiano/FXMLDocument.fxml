@@ -71,7 +71,7 @@
                   <Button fx:id="play" layoutX="572.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#playRec" text="Play" />
                   <Button fx:id="otj" layoutX="34.0" layoutY="169.0" mnemonicParsing="false" onMouseReleased="#playOdeToJoy" text="Ode To Joy" />
                   <ToggleButton fx:id="metronome" layoutX="380.0" layoutY="128.0" mnemonicParsing="false" onMousePressed="#metronome" text="Metronome" />
-                  <Button fx:id="getFrustrated" layoutX="178.0" layoutY="128.0" mnemonicParsing="false" text="Get Frustrated!" />
+                  <Button fx:id="getFrustrated" layoutX="178.0" layoutY="128.0" mnemonicParsing="false" onMouseReleased="#getFrustrated" text="I'm Frustrated!" />
                   <Slider fx:id="metronomeSlider" layoutX="355.0" layoutY="161.0" max="120.0" min="40.0" onMouseReleased="#getSliderValue" showTickLabels="true" showTickMarks="true" value="120.0" />
                   <Button fx:id="cancan" layoutX="42.0" layoutY="128.0" mnemonicParsing="false" onMouseReleased="#playCanCan" text="Can-Can" />
                   <Rectangle fx:id="titleBackground" arcHeight="5.0" arcWidth="5.0" fill="#a0a6ab" height="83.0" layoutX="6.0" stroke="#4f4e4e" strokeLineCap="ROUND" strokeType="INSIDE" width="627.0" />
