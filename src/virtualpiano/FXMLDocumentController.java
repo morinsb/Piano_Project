@@ -29,6 +29,16 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import java.io.File; 
+import java.io.FileInputStream;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
 
 /**
  *
@@ -130,11 +140,13 @@ public class FXMLDocumentController implements Initializable {
    
    
    @FXML
-   private MenuItem quit;
+       private MenuItem quit;
    
    @FXML
    private MenuItem about;
    
+   @FXML
+   private MenuItem upload;
    
    @FXML
    private Menu octaves;
@@ -168,7 +180,8 @@ public class FXMLDocumentController implements Initializable {
    private MenuItem defaultSkin;
    @FXML
    private MenuItem rainbowSkin;
-
+   @FXML
+   private MenuItem save;
  
    //DO NOT DELETE THIS
    //system.currentTimeMillis
@@ -220,11 +233,15 @@ public class FXMLDocumentController implements Initializable {
    private Rectangle G3sg;
    @FXML
    private Rectangle B3fg;
-   
+   @FXML
+   private Label recName;
+
    private long startTime;
    private long elapsedTime;
    private ArrayList<RecordedNote> rec1 = new ArrayList<RecordedNote>();
    private boolean isRecording = false;
+   
+   
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -232,6 +249,7 @@ public class FXMLDocumentController implements Initializable {
     }  
     
     //method to start recording
+    @FXML
     public void record(MouseEvent event){
        if(isRecording == false){
            rec1.clear();
@@ -241,6 +259,7 @@ public class FXMLDocumentController implements Initializable {
        } else {
            isRecording = false;
            elapsedTime = startTime - System.currentTimeMillis();
+           recName.setText("Untitled");
        }   
     }
     //method to play recording
@@ -248,12 +267,13 @@ public class FXMLDocumentController implements Initializable {
         startTime = System.currentTimeMillis();
         //check time alignment
         for (int i = 0; i < rec1.size(); i++){
-            playSound(rec1.get(i).getFile(), rec1.get(i).getRec());
-            if(i + 1 <= rec1.size()){
+            URL sound = getClass().getResource("pianoNotes/" + VirtualPiano.getOctave() + "/" + rec1.get(i).getFile());
+            AudioClip play = new AudioClip(sound.toString());
+            play.play();
+            if(i + 1 < rec1.size()){
                 try{
                     long t = rec1.get(i+1).getTime()-rec1.get(i).getTime();
                     Thread.sleep(t);
-                    //Thread.sleep(250);
                 } catch(InterruptedException e){   
                     
                 }
@@ -261,7 +281,48 @@ public class FXMLDocumentController implements Initializable {
         }
     }
   
-
+//sets the recording
+    @FXML
+    public void upload(ActionEvent event){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select File");
+        File selectedFile = fileChooser.showOpenDialog(null);
+        recName.setText(selectedFile.getName());
+        try {
+            FileInputStream fileIn = new FileInputStream(selectedFile.getAbsolutePath());
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            rec1 = (ArrayList<RecordedNote>) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (IOException i) {
+            i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            System.out.println("ClassNotFoundException");
+            c.printStackTrace();
+        }
+    }
+    @FXML
+    public void save(){
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Recording(*.ser)", "*.ser"));
+            fileChooser.setTitle("Save File");
+            File file = fileChooser.showSaveDialog(VirtualPiano.myStage); 
+            FileOutputStream fileOut = new FileOutputStream(file.getPath());
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(rec1);
+            out.close();
+            fileOut.close();
+            recName.setText(file.getName());
+            //System.out.printf("Serialized data is saved in /tmp/rec1.ser file");
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+    }
+    @FXML
+    public void setRecordingName(String n){
+      recName.setText(n);  
+    }
     public void reverseSkin(ActionEvent event){
         VirtualPiano.switchToReverse();
     }
@@ -297,7 +358,7 @@ public class FXMLDocumentController implements Initializable {
     //Method to play the piano notes
     public void playSound(String filename, Rectangle rectangle){
         if(isRecording == true){
-            rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, filename, rectangle));
+            rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, filename));
             
         }
        URL sound = getClass().getResource("pianoNotes/" + VirtualPiano.getOctave() + "/" + filename);
