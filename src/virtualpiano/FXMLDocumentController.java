@@ -30,6 +30,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -246,6 +247,10 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
    @FXML
    private Slider metronomeSlider;
    
+    @FXML
+    private ImageView imageView;
+ 
+   
    
    private long startTime;
    private long elapsedTime;
@@ -285,6 +290,14 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
     public void getSliderValue(MouseEvent event){
         this.sliderValue = 60000/(metronomeSlider.getValue());
   
+    }
+    public void getFrustrated(MouseEvent event){
+        Image image = new Image("brokenPiano.jpg");
+ 
+        imageView.setImage(image);
+        sleep(3000);
+        imageView.setImage(null);
+
     }
   
     
@@ -376,7 +389,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
        AudioClip play1 = new AudioClip(sound.toString());
        play1.play(); 
     }
-    //method to play a sound that is not a piano note
+   
      
     //play notes
     public void playC1(MouseEvent event){
