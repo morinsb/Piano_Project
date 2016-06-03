@@ -47,6 +47,34 @@ import javafx.stage.StageStyle;
  */
 public class FXMLDocumentController implements Initializable, EventHandler<ActionEvent> {
     
+    //Styling
+    @FXML
+    private Rectangle titleBackground;
+    //white rectangles
+    @FXML
+    private Rectangle white1;
+    @FXML
+    private Rectangle white2;
+    @FXML
+    private Rectangle white3;
+    @FXML
+    private Rectangle white4;
+    @FXML
+    private Rectangle white5;
+    @FXML
+    private Rectangle white6;
+    //black rectanlges
+    @FXML
+    private Rectangle black1;
+    @FXML
+    private Rectangle black2;
+    @FXML
+    private Rectangle black3;
+    @FXML
+    private Rectangle black4;
+            
+    
+    
     //getFrustrated!
     @FXML
     private Button getFrustrated;
@@ -161,6 +189,8 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
    @FXML
    private Menu octaves;
    
+   
+   
    @FXML
    private MenuItem zero_one;
    @FXML
@@ -191,7 +221,14 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
    @FXML
    private MenuItem rainbowSkin;
 
- 
+   @FXML
+   private Menu pianos;
+   
+   @FXML
+   private MenuItem steinway;
+   @FXML
+   private MenuItem kawai;
+   
    //DO NOT DELETE THIS
    //system.currentTimeMillis
    @FXML
@@ -243,12 +280,13 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
    @FXML
    private Rectangle B3fg;
    @FXML
+   private Slider metronomeSlider;
+   //hear the masters buttons
+   @FXML
    private Button otj;
    @FXML
-   private Slider metronomeSlider;
-   
-    @FXML
-    private ImageView imageView;
+   private Button cancan;
+
  
    
    
@@ -265,7 +303,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     } 
     @Override
     public void handle(ActionEvent event) {
@@ -292,12 +330,13 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
   
     }
     public void getFrustrated(MouseEvent event){
-        Image image = new Image("brokenPiano.jpg");
- 
-        imageView.setImage(image);
-        sleep(3000);
-        imageView.setImage(null);
-
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("You're Frustrated?");
+        alert.setHeaderText("Everyone gets frustrated!");
+        alert.setContentText("Only losers give up! Keep practicing! You can take a break once you become a piano master! :)");
+        alert.showAndWait();
     }
   
     
@@ -378,10 +417,18 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
             rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, filename, rectangle));
             
         }
-       URL sound = getClass().getResource("pianoNotes/" + filename);
-       AudioClip play = new AudioClip(sound.toString());
-       play.play();
-       showKeyPlayed(rectangle);   
+        if((VirtualPiano.getPiano().equals("kawai/")) && (VirtualPiano.getOctave().equals("zero_one/") || VirtualPiano.getOctave().equals("five_six/"))){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Octaves");
+            alert.setHeaderText(null);
+            alert.setContentText("Sorry, this function is not available. Only octaves 1-5 are available for the Kawai piano.");
+            alert.showAndWait();
+        } else {
+            URL sound = getClass().getResource("pianoNotes/" + VirtualPiano.getPiano() + filename);
+            AudioClip play = new AudioClip(sound.toString());
+            play.play();
+            showKeyPlayed(rectangle);
+        }
     }
     //method to play a sound that is not a piano note
      public void playSound(String filename){
@@ -501,6 +548,18 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
         VirtualPiano.currentOctave = newOctave;
     }
     
+    // set piano
+    public void steinway(ActionEvent event){
+        changePiano("steinway");
+    }
+    public void kawai(ActionEvent event){
+        changePiano("kawai");
+    }
+    public void changePiano(String newPiano){
+        VirtualPiano.currentPiano = newPiano;
+    }
+    
+    
     
     public void quit(ActionEvent event){
         System.exit(0);
@@ -534,8 +593,6 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
                 this.tutorialPart1();
             } else if (result.get() == doNotBeginTutorial) {
                 // ... user chose "Two"
-            } else {
-                // ... user chose CANCEL or closed the dialog
             }
     }
    
@@ -553,8 +610,6 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
         Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == nextTutorial1) {
                 this.tutorialPart2();
-            } else {
-                // ... user chose CANCEL or closed the dialog
             }
     }
    
@@ -575,8 +630,6 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
                 this.tutorialPart1();
             } else if (result.get() == nextTutorial2) {
                 this.tutorialPart3();
-            } else {
-                // ... user chose CANCEL or closed the dialog
             }
     }
    
@@ -597,8 +650,6 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
                 this.tutorialPart2();
             } else if (result.get() == nextTutorial3) {
                 this.tutorialPart4();
-            } else {
-                // ... user chose CANCEL or closed the dialog
             }
     }
     
@@ -619,8 +670,6 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
                 this.tutorialPart3();
             } else if (result.get() == nextTutorial4) {
                 this.tutorialPart5();
-            } else {
-                // ... user chose CANCEL or closed the dialog
             }
     }
     
@@ -638,33 +687,69 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
 
         Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == backTutorial5){
-                this.tutorialPart3();
+                this.tutorialPart4();
             } else if (result.get() == nextTutorial5) {
-                // ... user chose "Two"
-            } else {
-                // ... user chose CANCEL or closed the dialog
+                this.tutorialPart6();
             }
     }
     
     private void tutorialPart6() {
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
         alert.setTitle("Tutorial");
-        alert.setHeaderText("Tutorial: Step Five");
+        alert.setHeaderText("Tutorial: Step Six");
         alert.setContentText("Recording your own tunes: To record and play back your music, press the record button in the upper right hand corner of the screen and proceed to record your song by clicking the 'Record' button.  You may change the octaves as you record, to get a wider variety of sounds.  When you are finished recording, press the 'Record' button.  You can then press Play, right below the 'Record' button to hear what you have recorded.");
-        ButtonType backTutorial5 = new ButtonType("Back");
-        ButtonType nextTutorial5 = new ButtonType("Next");
-        ButtonType stopTutorial5 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
-        alert.getButtonTypes().setAll(backTutorial5, stopTutorial5, nextTutorial5);
+        ButtonType backTutorial6 = new ButtonType("Back");
+        ButtonType nextTutorial6 = new ButtonType("Next");
+        ButtonType stopTutorial6 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial6, stopTutorial6, nextTutorial6);
 
         Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == backTutorial5){
-                this.tutorialPart4();
-            } else if (result.get() == nextTutorial5) {
-                // ... user chose "Two"
-            } else {
-                // ... user chose CANCEL or closed the dialog
+            if (result.get() == backTutorial6){
+                this.tutorialPart5();
+            } else if (result.get() == nextTutorial6) {
+                this.tutorialPart7();
+            }
+    }
+    
+        private void tutorialPart7() {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: Step Seven");
+        alert.setContentText("Hear the Masters: You can also hear some wonderful piano tunes by 'The Masters,' by clicking on the song you would like to hear. (Note: Unfortunately, you cannot play the piano or click on the screen until the song is done.)");
+        ButtonType backTutorial7 = new ButtonType("Back");
+        ButtonType nextTutorial7 = new ButtonType("Next");
+        ButtonType stopTutorial7 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial7, stopTutorial7, nextTutorial7);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial7){
+                this.tutorialPart6();
+            } else if (result.get() == nextTutorial7) {
+                this.tutorialPart8();
+            }
+    }
+        
+        private void tutorialPart8() {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("Piano.png").toString()));
+        alert.setTitle("Tutorial");
+        alert.setHeaderText("Tutorial: COMPLETE");
+        alert.setContentText("YOU ARE NOW A VIRTUAL PIANO SUPERSTAR/MASTER!!!  If you have any questions, feel free to contact Sam Morin: smorin@ucls.uchicago.edu");
+        ButtonType backTutorial8 = new ButtonType("Back");
+        ButtonType stopTutorial8 = new ButtonType("End Tutorial", ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(backTutorial8, stopTutorial8);
+
+        Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == backTutorial8){
+                this.tutorialPart7();
             }
     }
     
@@ -895,6 +980,69 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
         sleep(200);
         playSound(VirtualPiano.getOctave() + "c2.wav", C2);
     }
+    
+    public void playCanCan(MouseEvent event){
+       playSound(VirtualPiano.getOctave() + "g1.wav", G1);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "g1.wav", G1);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(1000);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "g1.wav", G1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "g2.wav", G2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "fs2.wav", Fs2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "e2.wav", E2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "d2.wav", D2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "c2.wav", C2);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "b1.wav", B1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "a1.wav", A1);
+       sleep(500);
+       playSound(VirtualPiano.getOctave() + "g1.wav", G1);
+       sleep(1000);
+    }
+    
+    
+    
+    }
+    
+    
 
     
 
@@ -907,7 +1055,6 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
     
    
    
-}
    
    
    

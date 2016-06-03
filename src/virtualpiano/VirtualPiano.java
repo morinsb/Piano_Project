@@ -22,9 +22,11 @@ public class VirtualPiano extends Application {
     private Scene scene;
     public static String currentOctave;
     public static VirtualPiano appInstance;
+    public static String currentPiano;
     
     @Override
     public void start(Stage stage) throws Exception {
+     currentPiano = "steinway";
      currentOctave = "two_three";
      appInstance = this;
      root= FXMLLoader.load(getClass().getResource("FXMLDocument.fxml")); 
@@ -33,6 +35,7 @@ public class VirtualPiano extends Application {
      scene.getStylesheets().add(cssFilePath);
      stage.setScene(scene);
      stage.show();
+ 
      //URL sound = getClass().getResource("pianoNotes/accordian.wav");
      //AudioClip play = new AudioClip(sound.toString());
      //play.play();
@@ -69,6 +72,9 @@ public class VirtualPiano extends Application {
     
     public static String getOctave(){
         return currentOctave + "/";
+    }
+    public static String getPiano(){
+        return currentPiano + "/";
     }
     
     

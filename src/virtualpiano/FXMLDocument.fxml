@@ -7,10 +7,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="463.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="virtualpiano.FXMLDocumentController">
     <children>
@@ -18,61 +19,97 @@
          <left>
             <AnchorPane focusTraversable="true" onKeyPressed="#keyboardPlay" prefHeight="246.0" prefWidth="639.0" BorderPane.alignment="CENTER">
                <children>
-                  <Rectangle id="C2" fx:id="C1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="12.0" layoutY="152.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="D2" fx:id="D1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="56.0" layoutY="152.0" onMousePressed="#playD1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="E2" fx:id="E1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="100.0" layoutY="152.0" onMousePressed="#playE1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="F2" fx:id="F1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="144.0" layoutY="152.0" onMousePressed="#playF1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="G2" fx:id="G1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="188.0" layoutY="152.0" onMousePressed="#playG1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="A2" fx:id="A1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="232.0" layoutY="152.0" onMousePressed="#playA1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="B2" fx:id="B1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="276.0" layoutY="152.0" onMousePressed="#playB1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="C3" fx:id="C2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="320.0" layoutY="152.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="D3" fx:id="D2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="364.0" layoutY="152.0" onMousePressed="#playD2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="E3" fx:id="E2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="408.0" layoutY="152.0" onMousePressed="#playE2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="F3" fx:id="F2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="452.0" layoutY="152.0" onMousePressed="#playF2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="G3" fx:id="G2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="496.0" layoutY="152.0" onMousePressed="#playG2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="A3" fx:id="A2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="540.0" layoutY="152.0" onMousePressed="#playA2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="B3" fx:id="B2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="583.0" layoutY="152.0" onMousePressed="#playB2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-                  <Rectangle id="C2s" fx:id="Cs1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="42.0" layoutY="153.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="D2s" fx:id="Ds1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="86.0" layoutY="152.0" onMousePressed="#playDs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="F2s" fx:id="Fs1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="174.0" layoutY="152.0" onMousePressed="#playFs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="G2s" fx:id="Gs1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="218.0" layoutY="152.0" onMousePressed="#playGs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="B2f" fx:id="Bf1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="262.0" layoutY="152.0" onMousePressed="#playBf1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="C3s" fx:id="Cs2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="350.0" layoutY="152.0" onMousePressed="#playCs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="D3s" fx:id="Ds2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="394.0" layoutY="152.0" onMousePressed="#playDs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="F3s" fx:id="Fs2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="482.0" layoutY="152.0" onMousePressed="#playFs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="G3s" fx:id="Gs2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="526.0" layoutY="152.0" onMousePressed="#playGs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <Rectangle id="B3f" fx:id="Bf2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="569.0" layoutY="152.0" onMousePressed="#playBf2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-                  <ToggleButton fx:id="rec" layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onMousePressed="#record" text="Record" />
-                  <Button fx:id="play" layoutX="548.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#playRec" text="Play" />
-                  <Label layoutX="28.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="C" />
-                  <Label layoutX="72.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="D" />
-                  <Label layoutX="115.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="E" />
-                  <Label layoutX="160.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="F" />
-                  <Label layoutX="204.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="G" />
-                  <Label layoutX="248.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="A" />
-                  <Label layoutX="291.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="B" />
-                  <Label layoutX="336.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="C" />
-                  <Label layoutX="380.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="D" />
-                  <Label layoutX="423.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="E" />
-                  <Label layoutX="468.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="F" />
-                  <Label layoutX="512.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="G" />
-                  <Label layoutX="557.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="A" />
-                  <Label layoutX="599.0" layoutY="354.0" prefHeight="17.0" prefWidth="29.0" text="B" />
-                  <Label layoutX="43.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="C#" />
-                  <Label layoutX="87.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="D#" />
-                  <Label layoutX="174.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="F#" />
-                  <Label layoutX="219.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="G#" />
-                  <Label layoutX="395.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="D#" />
-                  <Label layoutX="351.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="C#" />
-                  <Label layoutX="263.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
-                  <Label layoutX="483.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="F#" />
-                  <Label layoutX="527.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="G#" />
-                  <Label layoutX="572.0" layoutY="281.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
-                  <Button fx:id="otj" layoutX="42.0" layoutY="31.0" mnemonicParsing="false" onMouseReleased="#playOdeToJoy" text="Ode To Joy" />
-                  <ToggleButton fx:id="metronome" layoutX="409.0" layoutY="14.0" mnemonicParsing="false" onMousePressed="#metronome" text="Metronome" />
-                  <Button fx:id="getFrustrated" layoutX="33.0" layoutY="74.0" mnemonicParsing="false" onMouseReleased="#getFrustrated" text="Get Frustrated!" />
-                  <Slider fx:id="metronomeSlider" layoutX="383.0" layoutY="49.0" max="120.0" min="40.0" onMouseReleased="#getSliderValue" showTickLabels="true" showTickMarks="true" value="120.0" />
-                  <ImageView fx:id="imageView" fitHeight="130.0" fitWidth="213.0" layoutX="165.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+                  <Rectangle id="C2" fx:id="C1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="12.0" layoutY="205.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="D2" fx:id="D1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="56.0" layoutY="205.0" onMousePressed="#playD1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="E2" fx:id="E1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="100.0" layoutY="205.0" onMousePressed="#playE1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="F2" fx:id="F1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="144.0" layoutY="205.0" onMousePressed="#playF1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="G2" fx:id="G1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="188.0" layoutY="205.0" onMousePressed="#playG1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="A2" fx:id="A1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="232.0" layoutY="205.0" onMousePressed="#playA1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="B2" fx:id="B1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="276.0" layoutY="205.0" onMousePressed="#playB1" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="C3" fx:id="C2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="320.0" layoutY="205.0" onMousePressed="#playC2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="D3" fx:id="D2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="364.0" layoutY="205.0" onMousePressed="#playD2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="E3" fx:id="E2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="408.0" layoutY="205.0" onMousePressed="#playE2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="F3" fx:id="F2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="452.0" layoutY="205.0" onMousePressed="#playF2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="G3" fx:id="G2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="496.0" layoutY="205.0" onMousePressed="#playG2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="A3" fx:id="A2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="540.0" layoutY="205.0" onMousePressed="#playA2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="B3" fx:id="B2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="224.0" layoutX="583.0" layoutY="205.0" onMousePressed="#playB2" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+                  <Rectangle id="C2s" fx:id="Cs1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="42.0" layoutY="206.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle id="D2s" fx:id="Ds1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="86.0" layoutY="205.0" onMousePressed="#playDs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle id="F2s" fx:id="Fs1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="174.0" layoutY="205.0" onMousePressed="#playFs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle id="G2s" fx:id="Gs1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="218.0" layoutY="205.0" onMousePressed="#playGs1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle id="B2f" fx:id="Bf1" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="262.0" layoutY="205.0" onMousePressed="#playBf1" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle id="C3s" fx:id="Cs2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="350.0" layoutY="205.0" onMousePressed="#playCs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle id="D3s" fx:id="Ds2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="394.0" layoutY="205.0" onMousePressed="#playDs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle id="F3s" fx:id="Fs2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="482.0" layoutY="205.0" onMousePressed="#playFs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle id="G3s" fx:id="Gs2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="526.0" layoutY="205.0" onMousePressed="#playGs2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle id="B3f" fx:id="Bf2" arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="569.0" layoutY="205.0" onMousePressed="#playBf2" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Label layoutX="28.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="C" />
+                  <Label layoutX="72.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="D" />
+                  <Label layoutX="115.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="E" />
+                  <Label layoutX="160.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="F" />
+                  <Label layoutX="204.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="G" />
+                  <Label layoutX="248.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="A" />
+                  <Label layoutX="291.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="B" />
+                  <Label layoutX="336.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="C" />
+                  <Label layoutX="380.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="D" />
+                  <Label layoutX="423.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="E" />
+                  <Label layoutX="468.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="F" />
+                  <Label layoutX="512.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="G" />
+                  <Label layoutX="557.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="A" />
+                  <Label layoutX="599.0" layoutY="407.0" prefHeight="17.0" prefWidth="29.0" text="B" />
+                  <Label layoutX="43.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="C#" />
+                  <Label layoutX="87.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="D#" />
+                  <Label layoutX="174.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="F#" />
+                  <Label layoutX="219.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="G#" />
+                  <Label layoutX="395.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="D#" />
+                  <Label layoutX="351.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="C#" />
+                  <Label layoutX="263.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
+                  <Label layoutX="483.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="F#" />
+                  <Label layoutX="527.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="G#" />
+                  <Label layoutX="572.0" layoutY="334.0" prefHeight="17.0" prefWidth="29.0" text="B♭" />
+                  <ToggleButton fx:id="rec" layoutX="563.0" layoutY="128.0" mnemonicParsing="false" onMousePressed="#record" text="Record" />
+                  <Button fx:id="play" layoutX="572.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#playRec" text="Play" />
+                  <Button fx:id="otj" layoutX="34.0" layoutY="169.0" mnemonicParsing="false" onMouseReleased="#playOdeToJoy" text="Ode To Joy" />
+                  <ToggleButton fx:id="metronome" layoutX="380.0" layoutY="128.0" mnemonicParsing="false" onMousePressed="#metronome" text="Metronome" />
+                  <Button fx:id="getFrustrated" layoutX="178.0" layoutY="128.0" mnemonicParsing="false" onMouseReleased="#getFrustrated" text="I'm Frustrated!" />
+                  <Slider fx:id="metronomeSlider" layoutX="355.0" layoutY="161.0" max="120.0" min="40.0" onMouseReleased="#getSliderValue" showTickLabels="true" showTickMarks="true" value="120.0" />
+                  <Button fx:id="cancan" layoutX="42.0" layoutY="128.0" mnemonicParsing="false" onMouseReleased="#playCanCan" text="Can-Can" />
+                  <Rectangle fx:id="titleBackground" arcHeight="5.0" arcWidth="5.0" fill="#a0a6ab" height="83.0" layoutX="6.0" stroke="#4f4e4e" strokeLineCap="ROUND" strokeType="INSIDE" width="627.0" />
+                  <Text layoutX="144.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Virtual Piano" textAlignment="CENTER">
+                     <font>
+                        <Font name="Futura Condensed ExtraBold" size="59.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="24.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hear the Masters:">
+                     <font>
+                        <Font name="Futura Condensed ExtraBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="176.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I NEED A BREAK:">
+                     <font>
+                        <Font name="Futura Condensed ExtraBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="398.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tempo:">
+                     <font>
+                        <Font name="Futura Condensed ExtraBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="531.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Record a Tune:">
+                     <font>
+                        <Font name="Futura Condensed ExtraBold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Rectangle id="C2" fx:id="white1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="94.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="C2" fx:id="white2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="108.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="C2" fx:id="white3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="122.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="C2" fx:id="white4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="490.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="C2" fx:id="white5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="504.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="C2" fx:id="white6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="519.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="C2s" fx:id="black1" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="103.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
+                  <Rectangle id="C2s" fx:id="black2" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="119.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
+                  <Rectangle id="C2s" fx:id="black4" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="515.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
+                  <Rectangle id="C2s" fx:id="black3" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="501.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
                </children>
             </AnchorPane>
          </left>
@@ -99,6 +136,12 @@
                         <MenuItem fx:id="three_four" mnemonicParsing="false" onAction="#three_four" text="Third and Fourth" />
                         <MenuItem fx:id="four_five" mnemonicParsing="false" onAction="#four_five" text="Fourth and Fifth" />
                         <MenuItem fx:id="five_six" mnemonicParsing="false" onAction="#five_six" text="Fifth and Sixth" />
+                    </items>
+                  </Menu>
+                  <Menu fx:id="pianos" mnemonicParsing="false" text="Pianos">
+                    <items>
+                      <MenuItem fx:id="steinway" mnemonicParsing="false" onAction="#steinway" text="Steinway" />
+                        <MenuItem fx:id="kawai" mnemonicParsing="false" onAction="#kawai" text="Kawai" />
                     </items>
                   </Menu>
               <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
