@@ -5,20 +5,19 @@
  */
 package virtualpiano;
 
+import java.io.Serializable;
 import javafx.scene.shape.Rectangle;
 
 /**
  *
  * @author csstudent
  */
-public class RecordedNote {
+public class RecordedNote implements Serializable{
     private long time;
     private String file;
-    private Rectangle rectangle;
-    public RecordedNote(long t, String f, Rectangle r){
+    public RecordedNote(long t, String f){
         time = t;
         file = f;
-        rectangle = r;
     }
     
     public long getTime(){
@@ -27,8 +26,6 @@ public class RecordedNote {
     public String getFile(){
          return file;
      }
-    public Rectangle getRec(){
-     return rectangle;   
-    }
+
     
 }

@@ -20,11 +20,13 @@ import javafx.stage.Stage;
 public class VirtualPiano extends Application {
     private Parent root;
     private Scene scene;
+    public static Stage myStage;
     public static String currentOctave;
     public static VirtualPiano appInstance;
     
     @Override
     public void start(Stage stage) throws Exception {
+     myStage = stage;
      currentOctave = "two_three";
      appInstance = this;
      root= FXMLLoader.load(getClass().getResource("FXMLDocument.fxml")); 
