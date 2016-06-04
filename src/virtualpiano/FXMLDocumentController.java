@@ -297,6 +297,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
    @FXML
    private Label recName;
 
+   @FXML
    private Slider metronomeSlider;
    //hear the masters buttons
    @FXML
@@ -377,7 +378,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
         startTime = System.currentTimeMillis();
         //check time alignment
         for (int i = 0; i < rec1.size(); i++){
-            URL sound = getClass().getResource("pianoNotes/" + VirtualPiano.getOctave() + "/" + rec1.get(i).getFile());
+            URL sound = getClass().getResource("pianoNotes/" + rec1.get(i).getFile());
             AudioClip play = new AudioClip(sound.toString());
             play.play();
             if(i + 1 < rec1.size()){
@@ -476,7 +477,7 @@ public class FXMLDocumentController implements Initializable, EventHandler<Actio
     //Method to play the piano notes
     public void playSound(String filename, Rectangle rectangle){
         if(isRecording == true){
-            rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, filename));
+            rec1.add(new RecordedNote(System.currentTimeMillis()-startTime, VirtualPiano.getPiano() + filename));
             
         }
         if((VirtualPiano.getPiano().equals("kawai/")) && (VirtualPiano.getOctave().equals("zero_one/") || VirtualPiano.getOctave().equals("five_six/"))){
