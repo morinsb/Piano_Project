@@ -71,7 +71,7 @@
                   <Button fx:id="play" layoutX="572.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#playRec" text="Play" />
                   <Button fx:id="otj" layoutX="34.0" layoutY="169.0" mnemonicParsing="false" onMouseReleased="#playOdeToJoy" text="Ode To Joy" />
                   <ToggleButton fx:id="metronome" layoutX="380.0" layoutY="128.0" mnemonicParsing="false" onMousePressed="#metronome" text="Metronome" />
-                  <Button fx:id="getFrustrated" layoutX="178.0" layoutY="128.0" mnemonicParsing="false" text="Get Frustrated!" />
+                  <Button fx:id="getFrustrated" layoutX="178.0" layoutY="128.0" mnemonicParsing="false" onMouseReleased="#getFrustrated" text="I'm Frustrated!" />
                   <Slider fx:id="metronomeSlider" layoutX="355.0" layoutY="161.0" max="120.0" min="40.0" onMouseReleased="#getSliderValue" showTickLabels="true" showTickMarks="true" value="120.0" />
                   <Button fx:id="cancan" layoutX="42.0" layoutY="128.0" mnemonicParsing="false" onMouseReleased="#playCanCan" text="Can-Can" />
                   <Rectangle fx:id="titleBackground" arcHeight="5.0" arcWidth="5.0" fill="#a0a6ab" height="83.0" layoutX="6.0" stroke="#4f4e4e" strokeLineCap="ROUND" strokeType="INSIDE" width="627.0" />
@@ -101,11 +101,11 @@
                      </font>
                   </Text>
                   <Rectangle id="C2" fx:id="white1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="94.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                  <Rectangle id="C2" fx:id="white2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="108.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                  <Rectangle id="C2" fx:id="white3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="122.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="A2" fx:id="white2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="108.0" layoutY="13.0" onMousePressed="#playD1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="E3" fx:id="white3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="122.0" layoutY="13.0" onMousePressed="#playE1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
                   <Rectangle id="C2" fx:id="white4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="490.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                  <Rectangle id="C2" fx:id="white5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="504.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                  <Rectangle id="C2" fx:id="white6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="519.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="A2" fx:id="white5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="504.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
+                  <Rectangle id="E3" fx:id="white6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="519.0" layoutY="13.0" onMousePressed="#playC1" stroke="BLACK" strokeType="INSIDE" width="16.0" />
                   <Rectangle id="C2s" fx:id="black1" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="103.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
                   <Rectangle id="C2s" fx:id="black2" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="119.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
                   <Rectangle id="C2s" fx:id="black4" arcHeight="5.0" arcWidth="5.0" height="35.0" layoutX="515.0" layoutY="14.0" onMousePressed="#playCs1" stroke="BLACK" strokeType="INSIDE" width="11.0" />
